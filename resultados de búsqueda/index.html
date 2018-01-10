@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/09de17d4d7.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title id="nameMovie">IDNameMovie</title>
+</head>
+<body>
+<!-- Search Bar de practica para fronts-ends puedan probar búsqueda-->
+<div class="container">
+    <div class="row">
+        <div id="custom-search-input">
+            <div class="input-group col-md-12">
+                <input type="text" class="  search-query form-control" placeholder="Search" />
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-red" href="#" data-toggle="modal" data-target="#searchModal" role="button">Búsqueda Avanzada</a>
+
+<!-- Modal Search -->
+    <div id="searchModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="text-center logo">MovieSpace</h2>
+                    <h3 class="text-center">Ingresa tu búsqueda</h3>
+                </div>
+                <div class="modal-body">
+                    <div style="padding: 20px;" id="form-olvidado">
+                        <form accept-charset="UTF-8" role="form" id="login-form" method="post">
+                            <div class="container-fluid">
+                                <div class="row ">
+                                    <div id="custom-search-input">
+                                        <div class="input-group col-12">
+                                            <input type="text" class="search-query form-control" placeholder="Search" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-danger" type="button">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group input-group">
+                                <h4>Filtra por:</h4>
+                                <button type="button" class="btn btn-round ">Peliculas</button>
+                                <button type="button" class="btn btn-round ">Series</button>
+                                <h4 class="margin-top">Selecciona un Género</h4>
+                                <button type="button" class="btn btn-round ">Acción</button>
+                                <button type="button" class="btn btn-round ">Romance</button>
+                                <button type="button" class="btn btn-round ">Terror</button>
+                                <button type="button" class="btn btn-round ">Drama</button>
+                                <button type="button" class="btn btn-round ">Comedia</button>
+                                <button type="button" class="btn btn-round ">Documental</button>
+                                <button type="button" class="btn btn-round ">Suspenso</button>
+                                <button type="button" class="btn btn-round ">Histórico</button>
+                                <button type="button" class="btn btn-round ">Animación</button>
+                                <h4 class="margin-top">¿Como te sientes?</h4>
+                                <button type="button" class="btn btn-round ">Optimista</button>
+                                <button type="button" class="btn btn-round ">Enojado</button>
+                                <button type="button" class="btn btn-round ">Enamorado</button>
+                                <button type="button" class="btn btn-round ">Estresado</button>
+                                <button type="button" class="btn btn-round ">Triste</button>
+                                <button type="button" class="btn btn-round ">Relajado</button>
+                                <h4 class="margin-top">Otros Filtros</h4>
+                                <button type="button" class="btn btn-round btn-filter">Más Fans
+                                    <span class="glyphicon glyphicon-heart">
+                                </button>
+                                <button type="button" class="btn btn-round btn-filter">Más Valoradas
+                                    <span class="glyphicon glyphicon-star">
+                                </button>
+                                <button type="button" class="btn btn-round btn-filter">Tendencia
+                                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-round btn-filter">Premiadas
+                                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!-- btn search Bar-->
+                            <button type="submit" class="btn btn-block btn-red">
+                                Buscar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- pelicula formato-->
+    <div class="container-fluid">
+        <div class="row">
+            <div id="cont-results" class="container m-L-R">
+                <div class="row js-contMovie">
+                    <!--pelicula contenedor -->
+                    <div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">
+                        <div class="shadow m-1">
+                            <div class="js-img-movie">
+                                <img class="img-responsive" src="https://s3.amazonaws.com/nv1cdn2/2017/07/fantastic_beasts_and_where_to_find_them-229500301-large.jpg"
+                                    alt="">
+                            </div>
+                            <div class="p-1">
+                                <button class="js-saveMovie btn-saveM pull-right">
+                                    <span class="glyphicon glyphicon-bookmark"></span>
+                                </button>
+                                <h4 class="js-titleMovie">TituloPeli</h4>
+                                <span class="js-year">(Year)</span>
+                                <p class="js-gender">Aventuras, Fantasía</p>
+                                <div class="js-stars">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin pelicula contenedor -->
+
+<!--Repeticion de prueba de grilla para pelicula contenedor -->
+                    <!--pelicula contenedor -->
+                    <div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">
+                        <div class="shadow m-1">
+                            <div class="js-img-movie">
+                                <img class="img-responsive" src="https://s3.amazonaws.com/nv1cdn2/2017/07/fantastic_beasts_and_where_to_find_them-229500301-large.jpg"
+                                    alt="">
+                            </div>
+                            <div class="p-1">
+                                <button class="js-saveMovie btn-saveM pull-right">
+                                    <span class="glyphicon glyphicon-bookmark"></span>
+                                </button>
+                                <h4 class="js-titleMovie">TituloPeli</h4>
+                                <span class="js-year">(Year)</span>
+                                <p class="js-gender">Aventuras, Fantasía</p>
+                                <div class="js-stars">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin pelicula contenedor -->
+
+                    <!--pelicula contenedor -->
+                    <div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">
+                        <div class="shadow m-1">
+                            <div class="js-img-movie">
+                                <img class="img-responsive" src="https://s3.amazonaws.com/nv1cdn2/2017/07/fantastic_beasts_and_where_to_find_them-229500301-large.jpg"
+                                    alt="">
+                            </div>
+                            <div class="p-1">
+                                <button class="js-saveMovie btn-saveM pull-right">
+                                    <span class="glyphicon glyphicon-bookmark"></span>
+                                </button>
+                                <h4 class="js-titleMovie">TituloPeli</h4>
+                                <span class="js-year">(Year)</span>
+                                <p class="js-gender">Aventuras, Fantasía</p>
+                                <div class="js-stars">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin pelicula contenedor -->
+
+                    <!--pelicula contenedor -->
+                    <div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">
+                        <div class="shadow m-1">
+                            <div class="js-img-movie">
+                                <img class="img-responsive" src="https://s3.amazonaws.com/nv1cdn2/2017/07/fantastic_beasts_and_where_to_find_them-229500301-large.jpg"
+                                    alt="">
+                            </div>
+                            <div class="p-1">
+                                <button class="js-saveMovie btn-saveM pull-right">
+                                    <span class="glyphicon glyphicon-bookmark"></span>
+                                </button>
+                                <h4 class="js-titleMovie">TituloPeli</h4>
+                                <span class="js-year">(Year)</span>
+                                <p class="js-gender">Aventuras, Fantasía</p>
+                                <div class="js-stars">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin pelicula contenedor -->
+
+                    <!--pelicula contenedor -->
+                    <div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">
+                        <div class="shadow m-1">
+                            <div class="js-img-movie">
+                                <img class="img-responsive" src="https://s3.amazonaws.com/nv1cdn2/2017/07/fantastic_beasts_and_where_to_find_them-229500301-large.jpg"
+                                    alt="">
+                            </div>
+                            <div class="p-1">
+                                <button class="js-saveMovie btn-saveM pull-right">
+                                    <span class="glyphicon glyphicon-bookmark"></span>
+                                </button>
+                                <h4 class="js-titleMovie">TituloPeli</h4>
+                                <span class="js-year">(Year)</span>
+                                <p class="js-gender">Aventuras, Fantasía</p>
+                                <div class="js-stars">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin pelicula contenedor -->
+
+                    <!--pelicula contenedor -->
+                    <div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">
+                        <div class="shadow m-1">
+                            <div class="js-img-movie">
+                                <img class="img-responsive" src="https://s3.amazonaws.com/nv1cdn2/2017/07/fantastic_beasts_and_where_to_find_them-229500301-large.jpg"
+                                    alt="">
+                            </div>
+                            <div class="p-1">
+                                <button class="js-saveMovie btn-saveM pull-right">
+                                    <span class="glyphicon glyphicon-bookmark"></span>
+                                </button>
+                                <h4 class="js-titleMovie">TituloPeli</h4>
+                                <span class="js-year">(Year)</span>
+                                <p class="js-gender">Aventuras, Fantasía</p>
+                                <div class="js-stars">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin pelicula contenedor -->
+
+                    <!--pelicula contenedor -->
+                    <div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">
+                        <div class="shadow m-1">
+                            <div class="js-img-movie">
+                                <img class="img-responsive" src="https://s3.amazonaws.com/nv1cdn2/2017/07/fantastic_beasts_and_where_to_find_them-229500301-large.jpg"
+                                    alt="">
+                            </div>
+                            <div class="p-1">
+                                <button class="js-saveMovie btn-saveM pull-right">
+                                    <span class="glyphicon glyphicon-bookmark"></span>
+                                </button>
+                                <h4 class="js-titleMovie">TituloPeli</h4>
+                                <span class="js-year">(Year)</span>
+                                <p class="js-gender">Aventuras, Fantasía</p>
+                                <div class="js-stars">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin pelicula contenedor -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+<!--script-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/788d43088a.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
