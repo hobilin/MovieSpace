@@ -1,0 +1,26 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.movieProfile {
+    margin: 5%;
+}
+
+.imgMovie img {
+    width: 20%;
+}
+
+.imgAvatar {
+    width: 50%;
+}
+
+.suggestContact li {
+    list-style: none;
+    display: inline-block;
+}
