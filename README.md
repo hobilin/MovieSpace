@@ -1,6 +1,5 @@
 # MovieSpace Prototipo
 
-
 ##Introducción
 Encargo para proponer una red social con los siguientes requerimientos generales: 
 -Perfiles de usuarios
@@ -13,7 +12,7 @@ Encargo para proponer una red social con los siguientes requerimientos generales
 
 ##Planeación
 ###Descubrimiento e investigación
-***Usuario*:** Usuarios desde 12 años en adelante que puedan interactuar con redes sociales
+***Usuario*:** Usuarios desde 15 años en adelante o que puedan interactuar con redes sociales.
 
 **Necesidades:** 
 -Lugar para encontrar información de forma rápida y simple acerca de peliculas y descubir nuevos estrenos.
@@ -33,7 +32,6 @@ https://app.moqups.com/sashaaviles17@hotmail.com/qq8R62oewQ/view
 Filtros de Búsqueda
 https://app.moqups.com/jotavasquezjota@gmail.com/Jq4CfxOxyj/view
 
-### Prototipado
 
 #### Esquema de trabajo
 Se dividió el trabajo de la siguiente forma:
@@ -46,15 +44,15 @@ Equipo UX y Equipo Front-End.
 6. Presentación.
 * Evaluación y testeo constante por parte de todo el equipo.
 
-####Objetivos
+#### Objetivos
 Nuestro Objetivo es realizar una web funcional para la realización de búsquedas, Seguir una pelicula por el usuario, seguir un usuario y hacer comentarios.
 
-####Resumen:
+#### Resumen:
 De que trata el producto:
--Red social de peliculas y series, para encontrar y compartir
--Tomamos la desición en grupo como usuarios factibles del producto(fans), encontramos que no hay una web que muestre coincidencias en gustos similares en cuanto a material audiovisual.
--Dos equipos, UX y front, con reuniones y feedback constante.
--Hemos llegado:
+- Red social de peliculas y series, para encontrar y compartir
+- Tomamos la desición en grupo como usuarios factibles del producto(fans), encontramos que no hay una web que muestre coincidencias en gustos similares en cuanto a material audiovisual.
+- Dos equipos, UX y front, con reuniones y feedback constante.
+- Hemos llegado:
 	Front-end
 	1. Toma de información de dos APIS mediante funciones.
 	2. Firebase para guardar contactos y distinta data del usuario.
