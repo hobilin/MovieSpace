@@ -1,4 +1,18 @@
 $(document).ready(function() {
+	/**
+		 * obtener data desde the movie database
+		 */
+	var settings = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://api.themoviedb.org/3/movie/12?language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
+		"method": "GET",
+		"headers": {},
+		"data": "{}"
+	}
+	$.ajax(settings).done(function (response) {
+		console.log(response);
+	})
 
   $("#gotPoster").click(function() {
     $("#serieSeason").append('<div class="container">' +
