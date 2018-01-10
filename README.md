@@ -1,5 +1,5 @@
-# MovieSpace
-Challenge Hackathon: Creación de una página web con temática de películas que utilice la API de Open Movie Database (OMDB.)
+# MovieSpace Prototipo
+
 
 ##Introducción
 Encargo para proponer una red social con los siguientes requerimientos generales: 
@@ -23,12 +23,6 @@ Encargo para proponer una red social con los siguientes requerimientos generales
 https://play.google.com/store/apps/details?id=lingger.linggers.android.lingger&hl=es
 
 ![](https://lh3.googleusercontent.com/4OCxft36j-7FLJ9nkzR1ijlgxYFGRU3i7h2I7MUWwTdyB_Htl7cEsh-cqH2US2tgbtzh=h900-rw)
-
-
-###Síntesis y definición
-Observamos la necesidad de ofrecer una plataforma donde los rescatistas y personas interesadas en los animales puedan compartir emergencías rápidamente sin que se pierda en los historiales de otras redes sociales más conocidas.
-Además se crea una instancia donde se pueden intercambiar comentarios, fotografías y datos en general, por ejemplo una base de datos con personas que  están dispuestas a ser hogar temporal de mascotas.
-Enfocamos el uso en mobile, ya que está app será usada para captar diversos eventos con cámara y geolocalización.
 
 ###Ideación
 Realizamos diferentes bocetos, llegando a la propuesta de los siguientes wireframes iniciales:
@@ -54,3 +48,31 @@ Equipo UX y Equipo Front-End.
 
 ####Objetivos
 Nuestro Objetivo es realizar una web funcional para la realización de búsquedas, Seguir una pelicula por el usuario, seguir un usuario y hacer comentarios.
+
+####Resumen:
+De que trata el producto:
+-Red social de peliculas y series, para encontrar y compartir
+-Tomamos la desición en grupo como usuarios factibles del producto(fans), encontramos que no hay una web que muestre coincidencias en gustos similares en cuanto a material audiovisual.
+-Dos equipos, UX y front, con reuniones y feedback constante.
+-Hemos llegado:
+	Front-end
+	1. Toma de información de dos APIS mediante funciones.
+	2. Firebase para guardar contactos y distinta data del usuario.
+	UX.
+    1. Directrices generales de diseño en Mockups.
+	1. Maquetación Web pagína inicial.
+	2. Diseño de Modales login y filtro de búsqueda avanzada.
+	Equipo
+    Esqueleto del producto.
+
+- Para la entrega:
+	1. Diseño UI y Maquetación web de: Home, Home Usuario, profile de pelicula o serie, funcionalidades:
+	2. Búsqueda activa y filtros funcionando.
+	3. Poder logearse, Agregar favoritos o me gusta de peliculas y series y que queden guardados en el perfil de usuario.
+	4. Realizar comentarios a otros usuarios, usar foros y en la página de información de las peliculas.
+	5. Que sea mobileFriendly.
+
+
+
+
+
