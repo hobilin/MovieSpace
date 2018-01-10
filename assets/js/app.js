@@ -1,18 +1,6 @@
 $(document).ready(function() {
-	/**
-		 * obtener data desde the movie database
-		 */
-	var settings = {
-		"async": true,
-		"crossDomain": true,
-		"url": "https://api.themoviedb.org/3/movie/12?language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
-		"method": "GET",
-		"headers": {},
-		"data": "{}"
-	}
-	$.ajax(settings).done(function (response) {
-		console.log(response);
-	})
+
+seriesPoster();
 
   $("#gotPoster").click(function() {
     $("#serieSeason").append('<div class="container">' +
@@ -136,3 +124,19 @@ function focusItems() {
 
 });
   };
+
+  function seriesPoster() {
+    var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "friends", "the+gifted","modern+family", "supernatural", "riverdale",
+                     "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us", "westword", "breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
+                     "american+horror+story", "blindspot", "fuller+house", "orphan+black"]
+
+      for (var i = 0; i < seriesArr.length; i++) {
+      var series = $.getJSON('http://www.omdbapi.com/?t=' + seriesArr[i] + '&apikey=bfdd22b0');
+      series.then(function(responseSeries) {
+        var posterSerie = responseSeries.Poster;
+        if($(".btn-round").hasClass("tag-red-active").text() === responseSeries.Genre)
+        $("#posters").append('<img src="' + posterSerie + '">');
+      });
+      }
+
+  }
