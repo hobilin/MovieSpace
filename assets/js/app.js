@@ -54,6 +54,14 @@ $(document).ready(function() {
 				}
 				$.ajax(settings).done(function (response){
 					console.log(response);
+					/**
+					 * identificar genero de la pelicula y guardarlo en un array
+					 */
+					var arrayGender = [];
+					console.log(response.genres);
+					for (var i in response.genres) {
+						console.log(response.genres[i].name);
+						arrayGender.push(response.genres[i].name);
 					//$('#izquierda').click(function(){
 
 					//})
