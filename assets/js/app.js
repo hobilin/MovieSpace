@@ -224,13 +224,13 @@ return emailReg.test( $email );
 			 */
 			var arrayGender = [];
 			for (var i in response.genres) {
-				$(".js-contMovieAll").empty();
+				
 
 				arrayGender.push(response.genres[i].name);
 			}
 			$('#btn-peliculas').click(function () {
-				$('.js-contMovieAll').empty();
-				$('.js-contMovieAll').append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
+				$(".js-contMovieAll").empty();
+				$('.js-contPelisvieAll').append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
 					'<div class="shadow m-1"><div class="js-img-movie">' +
 					'<img class="img-responsive" id="imgPoster" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '">' +
 					'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
@@ -411,7 +411,7 @@ function focusItems() {
 
 // si clickeas en series
 $("#btn-series").click(function() {
-          $(".js-contMovieAll").empty();
+  $(".js-contMovieAll").empty();
   console.log("clic");
   var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "the+gifted","modern+family", "supernatural", "riverdale",
                    "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us", "breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
