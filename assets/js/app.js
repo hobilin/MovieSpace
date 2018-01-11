@@ -1,5 +1,67 @@
 $(document).ready(function() {
 
+	/**
+		* funcion para obetener nombre y id
+		*/
+	var data = movie.movies;
+	var dataMovie = [];
+
+	for (var i in data) {
+		dataMovie.push(data[i].name);
+	} 
+	/**
+ * funcion de autocompletado en el buscador
+ */
+	$(".search-query").autocomplete({
+		source: dataMovie
+	})
+	/**
+	 * funcion para obtener data de las peliculas
+	 */
+	function getMovie() {
+		var data = movie.movies;
+		var pelicula = $('.search-query').val();
+		for(var i in data){
+			if(data[i].name == pelicula){
+				/**
+       * fincion para obtener trailer de la pelicula
+       */
+				var settings = {
+					"async": true,
+					"crossDomain": true,
+					"url": "https://api.themoviedb.org/3/movie/" + data[i].id + "/videos?language=en-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
+					"method": "GET",
+					"headers": {},
+					"data": "{}"
+				}
+				$.ajax(settings).done(function (trailer) {
+					console.log(trailer);
+					console.log(trailer.results[0].key);
+					//$('.trailer').append('<iframe width="426" height="240" src="https://www.youtube.com/embed/' + trailer.results[0].key + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+				});
+
+				/**
+       * funcion para obtener data de la pelicula
+       */
+				var settings = {
+					"async": true,
+					"crossDomain": true,
+					"url": "https://api.themoviedb.org/3/movie/" + data[i].id + "?language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
+					"method": "GET",
+					"headers": {},
+					"data": "{}"
+				}
+				$.ajax(settings).done(function (response){
+					console.log(response);
+					//$('#izquierda').click(function(){
+
+					//})
+				})
+			}
+		}
+
+	}
+
 seriesPoster();
 
   $("#gotPoster").click(function() {

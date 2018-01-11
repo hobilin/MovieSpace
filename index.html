@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>movieSpace</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/bootstrap/js/jquery.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://use.fontawesome.com/3f256a4698.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script>
@@ -44,14 +46,21 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><!-- Search Bar -->
-                        <li><a href="#"><input type="text" class="  search-query form-control" placeholder="Search" /></a>
-                         <li><button class="btn btn-danger" type="button">
-                  <i class="glyphicon glyphicon-search"></i>
-                </button></li></li>
+              <li>
+                <form action="javascript:getMovie()">
+                  <a href="#"><input type="text" class="search-query form-control" placeholder="Search" /></a>
+                  <li>
+                    <button class="btn btn-danger" type="button">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </li>
+                </form>
+              </li>
+            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
 
-            </li>
+            
             <li><a class="btn btn-red" href="#" data-toggle="modal" data-target="#searchModal" role="button">Búsqueda Avanzada</a></li>
             <li><a href="#" data-toggle="modal" data-target="#myModal" role="button"><button type="button" class="btn btn-primary navbar-btn" data-dismiss="modal">Iniciar Sesión</button>
               <button type="button" class="btn btn-primary navbar-btn botonlog">Registrate</button>
@@ -243,6 +252,7 @@
 <script src="assets/js/validate.min.js" charset="utf-8"></script>
 <script src="assets/js/moment.min.js" charset="utf-8"></script>
 <script src="assets/js/app.js" charset="utf-8"></script>
+<script src="assets/data/data-movie.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 </body>
 </html>
