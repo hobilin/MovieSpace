@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/09de17d4d7.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>MovieSpace</title>
+</head>
+
+<body>
+    <a class="" href="#" data-toggle="modal" data-target="#myModal" role="button">Inicia Sesión</a>
+    <a class="" href="#" data-toggle="modal" data-target="#modalSignUP" role="button">SignUp</a>
+
+    <!-- Search Bar de prueba-->
+    <div class="container">
+        <div class="row">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="  search-query form-control" placeholder="Search" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-red" href="#" data-toggle="modal" data-target="#searchModal" role="button">Búsqueda Avanzada</a>
+    </div>
+    <!-- Modal login -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="text-center logo">MovieSpace</h2>
+                    <h3 class="text-center margin-top">Inicia Sesión</h3>
+                </div>
+                <div class="modal-body">
+                    <div style="padding: 20px;" id="form-olvidado">
+                        <form accept-charset="UTF-8" role="form" id="login-form" method="post">
+                            <p class="text-center">
+                                <a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a class="btn btn-primary social-login-btn social-twitter" href="/auth/twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </p>
+                            <p class="text-center">
+                                <a class="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a class="btn btn-primary social-login-btn social-google" href="/auth/google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </p>
+                            <fieldset class="margin-top">
+                                <div id="msform" class="input-group margin-top">
+                                    <input class="inputbar" type="text" name="email" placeholder="Email" />
+                                    <input class="inputbar" type="password" name="pass" placeholder="Password" />
+                                    <input type="submit" name="submit" class="btn-red submit action-button" value="Enviar" />
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal SignUp -->
+    <div id="modalSignUP" class="modal fade" role="dialog">
+        <form id="msform" class"modal-dialog">
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="text-center logo m-bottom">MovieSpace</h2>
+                <!-- progressbar -->
+                <ul id="progressbar">
+                    <li id="1" class="active">Configuración
+                    </li>
+                    <li id="2">Redes Sociales
+                    </li>
+                    <li id="3">Datos Personales
+                    </li>
+                </ul>
+                <div id="form-cont">
+                    <h2 class="fs-title">Crea tu Cuenta</h2>
+                    <h3 class="fs-subtitle"></h3>
+                    <input type="text" name="email" placeholder="Email" />
+                    <input type="password" name="pass" placeholder="Password" />
+                    <input type="password" name="cpass" placeholder="Confirmar Password" />
+                    <input type="button" id="next1" name="next" class="next action-button" value="Siguiente" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+    
+
+
+    <!--script-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/788d43088a.js"></script>
+    <script src="appModal.js"></script>
+</body>
+
+</html>
