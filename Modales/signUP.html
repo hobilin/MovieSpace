@@ -14,6 +14,19 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,800" rel="stylesheet">
         <link rel="stylesheet" href="css/signUp.css">
         <title>MovieSpace</title>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyDy6QzxlI66qWQWghSveNsy3FvyWhikUUE",
+          authDomain: "moviespace-e0c6f.firebaseapp.com",
+          databaseURL: "https://moviespace-e0c6f.firebaseio.com",
+          projectId: "moviespace-e0c6f",
+          storageBucket: "moviespace-e0c6f.appspot.com",
+          messagingSenderId: "452969529999"
+        };
+        firebase.initializeApp(config);
+      </script>
     </head>
 <body>
 <!-- multistep form -->
@@ -47,7 +60,7 @@
             <div class="help-block with-errors"></div>
           </div>
       <div class="form-group">
-        <input type="submit" id="next1" name="next" class="next action-button disabled"  value="Siguiente">
+        <input type="submit"  id="next1" name="next" class="next action-button disabled"  value="Siguiente">
       </div></form>
 
 </div>
