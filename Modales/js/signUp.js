@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    //Función para activar selección de filtros de búsqueda
+
+
+  //Función para activar selección de filtros de búsqueda
     $("#next1").click(function () {
         $("#form-cont").remove();
         $("fieldset").append(
@@ -9,7 +11,7 @@ $(document).ready(function () {
             '<input type="text" name="title-1" placeholder="Titulo 1" />'+
             '<input type="text" name="title-2" placeholder="Titulo 2" />'+
             '<input type="text" name="title-3" placeholder="Titulo 3" />'+
-            '<input type="button" id="next2" name="next" class="action-button btn-md" value="Siguiente" />'+
+            '<input type="button" id="next2" name="next" class="action-button btn-md disabled" value="Siguiente" />'+
             '</div>'
         );
         $("#2").addClass("active");
@@ -23,7 +25,7 @@ $(document).ready(function () {
                 '<input type="text" name="nombre" placeholder="Nombre"/>' +
                 '<input type="text" name="apellido" placeholder="Apellido"/>' +
                 '<input type="text" name="alias" placeholder="Alias"/>' +
-                '<input type="submit" id="btn-submit" name="submit" class="submit action-button" value="Enviar"/>' +
+                '<input type="submit" id="btn-submit" name="submit" class="submit action-button disabled" value="Enviar"/>' +
                 '</div>'
             );
             $("#3").addClass("active");
@@ -38,6 +40,7 @@ $(document).ready(function () {
                     '<h3 class="success">¡Bienvenido a MovieSpace!</h3>' +
                     '<input type="button" id="comenzar" name="next" class="next action-button" value="Comenzar" />'+
                     '</div>'
+
                 );
             });
         });
