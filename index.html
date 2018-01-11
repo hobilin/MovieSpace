@@ -8,10 +8,15 @@
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="filtroResultados/filtro.html">
+  <link rel="stylesheet" href="ProfilePelicula/profileMov.html">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <script src="assets/bootstrap/js/jquery.js" charset="utf-8"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://use.fontawesome.com/3f256a4698.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,800" rel="stylesheet">
   <script>
     // Initialize Firebase
     var config = {
@@ -165,24 +170,26 @@
               <div class="form-group input-group">
                 <h4>Filtra por:</h4>
                 <button type="button" class="btn btn-round ">Peliculas</button>
-                <button type="button" class="btn btn-round ">Series</button>
+                <button type="button" class="btn btn-round" id="serieFilter">Series</button>
                 <h4 class="margin-top">Selecciona un Género</h4>
-                <button type="button" class="btn btn-round ">Acción</button>
-                <button type="button" class="btn btn-round ">Romance</button>
-                <button type="button" class="btn btn-round ">Terror</button>
-                <button type="button" class="btn btn-round ">Drama</button>
-                <button type="button" class="btn btn-round ">Comedia</button>
-                <button type="button" class="btn btn-round ">Documental</button>
-                <button type="button" class="btn btn-round ">Suspenso</button>
-                <button type="button" class="btn btn-round ">Histórico</button>
-                <button type="button" class="btn btn-round ">Animación</button>
+                <button type="button" class="btn btn-round btn-genre" id="action"value="Action probando">Acción</button>
+                <button type="button" class="btn btn-round btn-genre" value="Romance">Romance</button>
+                <button type="button" class="btn btn-round btn-genre" value="Horror">Terror</button>
+                <button type="button" class="btn btn-round btn-genre" value="Drama">Drama</button>
+                <button type="button" class="btn btn-round btn-genre" value="Comdey">Comedia</button>
+                <button type="button" class="btn btn-round btn-genre" value="Documentary">Documental</button>
+                <button type="button" class="btn btn-round btn-genre" value="Thriller">Suspenso</button>
+                <button type="button" class="btn btn-round btn-genre" value="History">Histórico</button>
+                <button type="button" class="btn btn-round btn-genre" value="Animation">Animación</button>
+                <button type="button" class="btn btn-round btn-genre" value="Fantasy">Fantasía</button>
+                <button type="button" class="btn btn-round btn-genre" value="Sci-Fi">Ciencia-Ficción</button>
                 <h4 class="margin-top">¿Como te sientes?</h4>
-                <button type="button" class="btn btn-round ">Optimista</button>
-                <button type="button" class="btn btn-round ">Enojado</button>
-                <button type="button" class="btn btn-round ">Enamorado</button>
-                <button type="button" class="btn btn-round ">Estresado</button>
-                <button type="button" class="btn btn-round ">Triste</button>
-                <button type="button" class="btn btn-round ">Relajado</button>
+                <button type="button" class="btn btn-round btn-emotion" value="Romance Comedy Fantasy Animation">Optimista</button>
+                <button type="button" class="btn btn-round btn-emotion" value="Drama Action Thriller">Enojado</button>
+                <button type="button" class="btn btn-round btn-emotion" value="Romance">Enamorado</button>
+                <button type="button" class="btn btn-round btn-emotion" value="Comedy Fantasy Animation">Estresado</button>
+                <button type="button" class="btn btn-round btn-emotion" value="Comedy Romance Fantasy">Triste</button>
+                <button type="button" class="btn btn-round btn-emotion" value="Documentary History">Relajado</button>
                 <h4 class="margin-top">Otros Filtros</h4>
                 <button type="button" class="btn btn-round btn-filter">Más Fans
                   <span class="glyphicon glyphicon-heart">
@@ -198,7 +205,7 @@
                     </button>
                   </div>
                   <!-- btn search Bar-->
-                  <button type="submit" class="btn btn-block btn-red">
+                  <button type="button" id="btn-submitFilter" class="btn btn-block btn-red">
                     Buscar
                   </button>
                 </form>
@@ -215,13 +222,24 @@
         <button type="button" class="btn btn-default" id="izquierda">Peliculas</button>
       </div>
       <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
-        <button type="button" class="btn btn-default medio">Series</button>
+        <button type="button" class="btn btn-default medio" id="btn-series">Series</button>
       </div>
       <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
         <button type="button" class="btn btn-default derecha">Zona Fans</button>
       </div>
     </div>
   </div>
+
+  <!-- pelicula formato-->
+      <div class="container-fluid">
+          <div class="row">
+              <div id="cont-results" class="m-L-R">
+                  <div class="row js-contMovieAll">
+                    <!--agregado desde js-->
+                  </div>
+              </div>
+          </div>
+      </div>
   <!--fin de botones de pagina inicial-->
   <footer class="container-fluid foot">
     <div class="row">

@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
-	/**
+// MOVIES
+	 /*
 		* funcion para obetener nombre y id
 		*/
 	var data = movie.movies;
@@ -8,7 +9,7 @@ $(document).ready(function() {
 
 	for (var i in data) {
 		dataMovie.push(data[i].name);
-	} 
+	}
 	/**
  * funcion de autocompletado en el buscador
  */
@@ -64,6 +65,24 @@ $(document).ready(function() {
 
 seriesPoster();
 
+// FILTRO
+
+  // Función para activar selección de filtros de búsqueda
+  $(".btn-round").click(function () {
+      //cambia colores de los filtros
+      $(this).toggleClass("tag-red-active");
+  });
+
+  // Función para aguardar pelis a la lista
+  $(".btn-saveM").click(function () {
+      // cambia colores del boton archivar
+      $(this).toggleClass("btn-saveM-active");
+  });
+
+
+
+// SERIES
+  // cuando ya se clickea una serie lleva a su perfil y se debe añadir este dropdown más los datos
   $("#gotPoster").click(function() {
     $("#serieSeason").append('<div class="container">' +
                              '<select name="" id="cusSelectbox">' +
@@ -187,18 +206,83 @@ function focusItems() {
 });
   };
 
-  function seriesPoster() {
-    var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "friends", "the+gifted","modern+family", "supernatural", "riverdale",
-                     "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us", "westword", "breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
-                     "american+horror+story", "blindspot", "fuller+house", "orphan+black"]
+
+
+
+
+  // funcion que coloca las series filtradas
+  $("#btn-submitFilter").click(function() {
+    $(".js-contMovieAll").empty();
+    var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "the+gifted","modern+family", "supernatural", "riverdale",
+                     "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us","breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
+                     "american+horror+story", "blindspot", "fuller+house", "orphan+black", "ancient+aliens"]
 
       for (var i = 0; i < seriesArr.length; i++) {
       var series = $.getJSON('http://www.omdbapi.com/?t=' + seriesArr[i] + '&apikey=bfdd22b0');
       series.then(function(responseSeries) {
         var posterSerie = responseSeries.Poster;
-        if($(".btn-round").hasClass("tag-red-active").text() === responseSeries.Genre)
-        $("#posters").append('<img src="' + posterSerie + '">');
-      });
-      }
+        var titleSerie = responseSeries.Title;
+        var yearSerie = responseSeries.Year;
+        var genreSerie = responseSeries.Genre;
+        var genreArr = genreSerie.split(",");
+        for (var j = 0; j < genreArr.length; j++) {
 
-  }
+          if($(".btn-genre[class='tag-red-active']").val() === genreArr[j]){
+            console.log(titleSerie);
+
+          /*$(".js-contMovieAll").append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
+                                      '<div class="shadow m-1"><div class="js-img-movie">' +
+                                      '<img class="img-responsive" src="' + posterSerie + '">' +
+                                      '</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+                                      '<span class="glyphicon glyphicon-bookmark"></span></button>' +
+                                      '<h4 class="js-titleMovie">' + titleSerie + '</h4><span class="js-year">(' + yearSerie + ')</span>' +
+                                      '<p class="js-gender">' + genreSerie + '</p><div class="js-stars">' +
+                                      '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
+                                      '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
+                                      '</div></div></div></div>');*/
+          };
+        };
+
+
+      });
+    };
+  });
+
+// si clickeas en series
+$("#btn-series").click(function() {
+          $(".js-contMovieAll").empty();
+  console.log("clic");
+  var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "the+gifted","modern+family", "supernatural", "riverdale",
+                   "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us", "breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
+                   "american+horror+story", "blindspot", "fuller+house", "orphan+black", "ancient+aliens"]
+
+    for (var i = 0; i < seriesArr.length; i++) {
+    var series = $.getJSON('http://www.omdbapi.com/?t=' + seriesArr[i] + '&apikey=bfdd22b0');
+    series.then(function(responseSeries) {
+      var posterSerie = responseSeries.Poster;
+      var titleSerie = responseSeries.Title;
+      var yearSerie = responseSeries.Year;
+      var genreSerie = responseSeries.Genre;
+        $(".js-contMovieAll").append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
+                                  '<div class="shadow m-1"><div class="js-img-movie">' +
+                                  '<img class="img-responsive" id="imgPoster" src="' + posterSerie + '">' +
+                                  '</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+                                  '<span class="glyphicon glyphicon-bookmark"></span></button>' +
+                                  '<h4 class="js-titleMovie">' + titleSerie + '</h4><span class="js-year">(' + yearSerie + ')</span>' +
+                                  '<p class="js-gender">' + genreSerie + '</p><div class="js-stars">' +
+                                  '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
+                                  '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
+                                  '</div></div></div></div>');
+
+      $(".js-img-movie").click(function() {
+        $(".js-contMovieAll").empty();
+        $(".js-contMovieAll").append('<div class="col-xs-12 col-sm-3 col-md-3"><div id="coverMovie">' +
+                               '<img class="img-responsive"src="' + posterSerie + '"></div></div>' +
+                               '<div class="col-xs-12 col-sm-6 col-md-7"><h1 id="titleMovie">' + titleSerie + '</h1>' +
+                               '<div id="rating">Rating</div><p id="duration">Duration</p><p id="gender">gender</p>' +
+                               '<p id="sipnosis"></p></div>')
+        console.log("hey");
+      });
+    });
+}
+});

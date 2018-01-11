@@ -1,7 +1,243 @@
+/*
+Resetear el navegador
+*/
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 
+body {
+    font-family: 'Open Sans', sans-serif;
+}
 
 
+/*CSS para formato resultado de peliculas */
+
+
+.m-L-R {
+    padding: 5% 5%;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: 5%;
+}
+
+.m-1 {
+    margin: 5%;
+}
+
+.js-cardMovie {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.shadow {
+    box-shadow: 0px 0px 8px 0px rgba(160, 154, 154, 0.89);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(160, 154, 154, 0.89);
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(160, 154, 154, 0.89);
+    border-radius: 10px;
+    border: 0.5px solid #868686;
+}
+
+.js-img-movie img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 20em;
+    height: 20em;
+}
+
+.btn-saveM {
+    background-color: #00000000;
+    border: none;
+    font-size: 1.5em;
+    color: #868686;
+}
+
+.js-titleMovie {
+    font-weight: 700;
+}
+
+.js-year {
+    font-weight: 800;
+    font-size: 0.9em;
+}
+
+.js-stars .glyphicon-star {
+    color: #ff0000;
+    text-shadow: 0px 0px 10px #ff0000, -1px -1px #ff0000;
+}
+
+.btn-saveM:hover {
+    color: #ff5252;
+}
+
+.btn-saveM-active {
+    color: #ff0000;
+}
+
+
+/* CSS MODAL DE PRUEBA PARA BUSQUEDAS SE PUEDE BORRAR*/
+
+#logo {
+    height: 50px;
+    width: 100px;
+}
+
+.logo1 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 35px;
+    margin-top: 11px;
+}
+
+.botonlog {
+    margin-top: -7px;
+}
+
+.carousel {
+    height: 80vh;
+    width: 100%;
+}
+
+.caja-1 {
+    height: 90vh;
+    width: 100%;
+    background-color: blue;
+}
+
+.titulo1 {
+    margin-left: 90px;
+}
+
+.imagen {
+    height: 80vh;
+}
+
+
+/* Search bar */
+
+#custom-search-input {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #D9230F;
+}
+
+.search-query:focus+button {
+    z-index: 3;
+}
+
+.btn-search {
+    background-color: #00000000;
+}
+
+.btn-red {
+    background-color: #ff5252;
+    background-image: none;
+    border-radius: 10px;
+    border: none;
+    color: #FFFFFF;
+}
+
+.btn-red:hover {
+    background-color: #c50e29;
+    color: #FFFFFF;
+}
+
+
+/*btn tags search modal */
+
+.inactive {
+    background-color: #ffbcaf;
+    border-radius: 10px;
+    border: none;
+}
+
+.badgeTag {
+    background-color: #FFF;
+    color: #ff5252;
+}
+
+
+/*color tags inactivos*/
+
+.js-tag-red {
+    background-color: #e2e2e2;
+    margin: 0.2em;
+    color: #000000;
+}
+
+
+/*color tags activos*/
+
+.tag-red-active {
+    background-color: #ffbcaf;
+}
+
+.btn-round {
+    border-radius: 17px;
+    margin: 0.2em;
+}
+
+.btn-filter {
+    /*border-radius: 5px;*/
+    font-weight: 700;
+}
+
+.margin-top {
+    margin-top: 1.2em;
+}
+
+.modal {
+  position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+}
 /*SELECTOR*/
 /* font-face */
 @import url(https://fonts.googleapis.com/css?family=Roboto);

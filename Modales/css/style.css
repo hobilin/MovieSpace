@@ -1,7 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
 
 
 /*ESTILOS GLOBALES */
@@ -14,18 +10,7 @@ body {
     margin-top: 1.2em;
 }
 
-.btn-red {
-    background-color: #ff5252;
-    background-image: none;
-    border-radius: 10px;
-    border: none;
-    color: #FFFFFF;
-}
 
-.btn-red:hover {
-    background-color: #c50e29;
-    color: #FFFFFF;
-}
 
 .logo {
     font-family: 'Pacifico', cursive;
@@ -79,6 +64,62 @@ body {
 .btn-search {
     background-color: #00000000;
 }
+
+.btn-red {
+    background-color: #ff5252;
+    background-image: none;
+    border-radius: 10px;
+    border: none;
+    color: #FFFFFF;
+}
+
+.btn-red:hover {
+    background-color: #c50e29;
+    color: #FFFFFF;
+}
+
+
+/*btn tags search modal */
+
+
+/* Hiding the checkbox, but allowing it to be focused */
+
+.badgebox {
+    opacity: 0;
+}
+
+.badgebox+.badge {
+    /* Move the check mark away when unchecked */
+    text-indent: -999999px;
+    /* Makes the badge's width stay the same checked and unchecked */
+    width: 27px;
+}
+
+.badgebox:focus+.badge {
+    /* Set something to make the badge looks focused */
+    /* This really depends on the application, in my case it was: */
+    /* Adding a light border */
+    box-shadow: inset 0px 0px 5px;
+    /* Taking the difference out of the padding */
+}
+
+.badgebox:checked+.badge {
+    /* Move the check mark back when checked */
+    text-indent: 0;
+}
+
+.inactive {
+    background-color: #ffbcaf;
+    border-radius: 10px;
+    border: none;
+}
+
+.badgeTag {
+    background-color: #FFF;
+    color: #ff5252;
+}
+
+
 
 /*color tags inactivos*/
 .js-tag-red {
@@ -151,6 +192,7 @@ body {
     background-color: #466b99;
     border-color: #3b5a7c;
 }
+
 
 /*MODAL SIGN UP*/
 .btn-input {
