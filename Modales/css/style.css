@@ -3,89 +3,15 @@
     padding: 0;
 }
 
+
+/*ESTILOS GLOBALES */
+
 body {
     font-family: 'Open Sans', sans-serif;
 }
 
-#logo {
-    height: 50px;
-    width: 100px;
-}
-
-.logo1 {
-    font-family: 'Indie Flower', cursive;
-    font-size: 35px;
-    margin-top: 11px;
-}
-
-.botonlog {
-    margin-top: -7px;
-}
-
-.btn-default {}
-
-.carousel {
-    height: 80vh;
-    width: 100%;
-}
-
-.caja-1 {
-    height: 90vh;
-    width: 100%;
-    background-color: blue;
-}
-
-.titulo1 {
-    margin-left: 90px;
-}
-
-.imagen {
-    height: 80vh;
-}
-
-
-/* Search bar */
-
-#custom-search-input {
-    margin: 0;
-    margin-top: 10px;
-    padding: 0;
-}
-
-#custom-search-input .search-query {
-    padding-right: 3px;
-    padding-right: 4px \9;
-    padding-left: 3px;
-    padding-left: 4px \9;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-
-#custom-search-input button {
-    border: 0;
-    background: none;
-    /** belows styles are working good */
-    padding: 2px 5px;
-    margin-top: 2px;
-    position: relative;
-    left: -28px;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    color: #D9230F;
-}
-
-.search-query:focus+button {
-    z-index: 3;
-}
-
-.btn-search {
-    background-color: #00000000;
+.margin-top {
+    margin-top: 1.2em;
 }
 
 .btn-red {
@@ -101,90 +27,91 @@ body {
     color: #FFFFFF;
 }
 
-
-/*btn tags search modal */
-
-
-/* Hiding the checkbox, but allowing it to be focused */
-
-.badgebox {
-    opacity: 0;
-}
-
-.badgebox+.badge {
-    /* Move the check mark away when unchecked */
-    text-indent: -999999px;
-    /* Makes the badge's width stay the same checked and unchecked */
-    width: 27px;
-}
-
-.badgebox:focus+.badge {
-    /* Set something to make the badge looks focused */
-    /* This really depends on the application, in my case it was: */
-    /* Adding a light border */
-    box-shadow: inset 0px 0px 5px;
-    /* Taking the difference out of the padding */
-}
-
-.badgebox:checked+.badge {
-    /* Move the check mark back when checked */
-    text-indent: 0;
-}
-
-.inactive {
-    background-color: #ffbcaf;
-    border-radius: 10px;
-    border: none;
-}
-
-.badgeTag {
-    background-color: #FFF;
+.logo {
+    font-family: 'Pacifico', cursive;
     color: #ff5252;
 }
 
+.rounded {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* CSS SEARCH BAR */
+#custom-search-input {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #D9230F;
+}
+.search-query:focus+button {
+    z-index: 3;
+}
+.btn-search {
+    background-color: #00000000;
+}
 
 /*color tags inactivos*/
-
 .js-tag-red {
     background-color: #e2e2e2;
     margin: 0.2em;
     color: #000000;
 }
 
-
 /*color tags activos*/
-
 .tag-red-active {
     background-color: #ffbcaf;
 }
 
+/*estilo redondo tags*/
 .btn-round {
     border-radius: 17px;
     margin: 0.2em;
 }
 
+/*estilo  botones filtros*/
 .btn-filter {
-    /*border-radius: 5px;*/
     font-weight: 700;
 }
 
-.margin-top {
-    margin-top: 1.2em;
-}
-
-
-/*modal login */
-
+/*MODAL LOGIN */
 .modal {
     background-color: #00000075;
 }
-
 .btn-center {
     width: 50%;
     text-align: center;
     margin: inherit;
 }
-
 .social-login-btn {
     margin: 5px;
     width: 10%;
@@ -192,48 +119,42 @@ body {
     padding: 0;
     background-image: none;
 }
-
 .social-google {
     background-color: #da573b;
     border-color: #be5238;
 }
-
 .social-google:hover {
     background-color: #be5238;
     border-color: #9b4631;
 }
-
 .social-twitter {
     background-color: #1daee3;
     border-color: #3997ba;
 }
-
 .social-twitter:hover {
     background-color: #3997ba;
     border-color: #347b95;
 }
-
 .social-facebook {
     background-color: #4c699e;
     border-color: #47618d;
 }
-
 .social-facebook:hover {
     background-color: #47618d;
     border-color: #3c5173;
 }
-
 .social-linkedin {
     background-color: #4875B4;
     border-color: #466b99;
 }
-
 .social-linkedin:hover {
     background-color: #466b99;
     border-color: #3b5a7c;
 }
 
-.logo {
-    font-family: 'Pacifico', cursive;
-    color: #ff5252;
+/*MODAL SIGN UP*/
+.btn-input {
+    background-color: #00000000;
+    color: #c50e29;
+    border: none;
 }

@@ -2,17 +2,16 @@
 
 ##Introducción
 Encargo para proponer una red social con los siguientes requerimientos generales: 
--Perfiles de usuarios
--Un newsfeed donde puedes ver las actualizaciones de todos tus contactos
--Un lugar donde poder escribir posts
--Un lugar para subir fotos
--Capacidad para poder tener amigos o para poder seguir a personas/marcas dentro de la red social
--Ser mobile friendy
-
+- Perfiles de usuarios
+- Un newsfeed donde puedes ver las actualizaciones de todos tus contactos
+- Un lugar donde poder escribir posts
+- Un lugar para subir fotos
+- Capacidad para poder tener amigos o para poder seguir a personas/marcas dentro de la red social
+- Ser mobile friendy
 
 ##Planeación
 ###Descubrimiento e investigación
-***Usuario*:** Usuarios desde 15 años en adelante o que puedan interactuar con redes sociales.
+***Usuario*:** Usuarios desde 15 años en adelante o que puedan interactuar con redes sociales. Fans de series y peliculas en generak que deseen encontrar gente con gustos similares.
 
 **Necesidades:** 
 -Lugar para encontrar información de forma rápida y simple acerca de peliculas y descubir nuevos estrenos.
@@ -24,7 +23,7 @@ https://play.google.com/store/apps/details?id=lingger.linggers.android.lingger&h
 ![](https://lh3.googleusercontent.com/4OCxft36j-7FLJ9nkzR1ijlgxYFGRU3i7h2I7MUWwTdyB_Htl7cEsh-cqH2US2tgbtzh=h900-rw)
 
 ###Ideación
-Realizamos diferentes bocetos, llegando a la propuesta de los siguientes wireframes iniciales:
+Realizamos diferentes bocetos, llegando a la propuesta de los siguientes wireframes Iniciales:
 
 Pantalla bienvenida, Bienvenida Usuario, perfil
 https://app.moqups.com/sashaaviles17@hotmail.com/qq8R62oewQ/view
@@ -47,16 +46,16 @@ Equipo UX y Equipo Front-End.
 #### Objetivos
 Nuestro Objetivo es realizar una web funcional para la realización de búsquedas, Seguir una pelicula por el usuario, seguir un usuario y hacer comentarios.
 
-#### Resumen:
+#### Resumen
 De que trata el producto:
 - Red social de peliculas y series, para encontrar y compartir
 - Tomamos la desición en grupo como usuarios factibles del producto(fans), encontramos que no hay una web que muestre coincidencias en gustos similares en cuanto a material audiovisual.
 - Dos equipos, UX y front, con reuniones y feedback constante.
 - Hemos llegado:
-	Front-end
+	Front-end:
 	1. Toma de información de dos APIS mediante funciones.
 	2. Firebase para guardar contactos y distinta data del usuario.
-	UX.
+	UX:
     1. Directrices generales de diseño en Mockups.
 	1. Maquetación Web pagína inicial.
 	2. Diseño de Modales login y filtro de búsqueda avanzada.

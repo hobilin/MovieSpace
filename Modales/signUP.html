@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/09de17d4d7.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/signUp.css">
+    <title>MovieSpace</title>
+</head>
+
+<!-- multistep form -->
+<form id="msform">
+    <!-- fieldsets -->
+    <fieldset>
+        <h2 class="text-center logo m-bottom">MovieSpace</h2>
+        <!-- progressbar -->
+        <ul id="progressbar">
+            <li id="1"class="active">Configuración
+            </li>
+            <li id="2">Redes Sociales
+            </li>
+            <li id="3">Datos Personales
+            </li>
+        </ul>
+        <div id="form-cont">
+            <h2 class="fs-title">Crea tu Cuenta</h2>
+            <h3 class="fs-subtitle"></h3>
+            <input type="text" name="email" placeholder="Email" />
+            <input type="password" name="pass" placeholder="Password" />
+            <input type="password" name="cpass" placeholder="Confirmar Password" />
+            <input type="button" id="next1" name="next" class="next action-button" value="Siguiente" />
+        </div>
+    </fieldset>
+
+    <!--<fieldset>
+        <h2 class="fs-title">Redes Sociales</h2>
+        <h3 class="fs-subtitle">Para comenzar puedes ingresar tus peliculas o series favoritas(opcional)</h3>
+        <input type="text" name="title-1" placeholder="Titulo 1" />
+        <input type="text" name="title-2" placeholder="Titulo 2" />
+        <input type="text" name="title-3" placeholder="Titulo 3" />
+        <input type="button" name="previous" class="previous action-button btn-medium" value="Anterior" />
+        <input type="button"  name="next" class="next action-button btn-medium" value="Siguiente" />
+    </fieldset>-->
+
+    <!--<fieldset>
+        <h2 class="fs-title">Datos Personales</h2>
+        <h3 class="fs-subtitle">Para terminar ingresa tus Datos personales</h3>
+        <input type="text" name="nombre" placeholder="Nombre" />
+        <input type="text" name="apellido" placeholder="Apellido" />
+        <input type="text" name="alias" placeholder="Alias" />
+        <!--<textarea name="descripcion" placeholder="Descripción "></textarea>
+        <input type="button" name="previous" class="previous action-button" value="Anterior"/>
+        <input type="submit" name="submit" class="submit action-button" value="Enviar"/>
+    </fieldset>-->
+</form>
+
+<!--script-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/788d43088a.js"></script>
+<script src="js/signUp.js"></script>
+</body>
+
+</html>
