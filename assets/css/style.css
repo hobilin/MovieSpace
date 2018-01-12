@@ -897,3 +897,15 @@ body {
 .success-img {
     width: 50%;
 }
+
+
+
+/*Clases a llamar con js guardar y seguir*/
+
+.saveBtn {
+  color: rgb(74, 57, 205);
+}
+
+.heartBtn {
+  color: rgb(135, 5, 5);
+}

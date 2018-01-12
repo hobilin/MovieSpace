@@ -1,6 +1,10 @@
 $(document).ready(function() {
+
+
+
 // secciones ocultas
-$("#mainPage").hide();
+$("#mainPage").show();
+$("#msform").hide();
 
 	  // Cuando se cliqueen los botones en registro
 	    $("#next1").click(function () {
@@ -111,6 +115,22 @@ $("#mainPage").hide();
 	  });
 	};
 	 observardor();
+	 /*
+
+	 function cerrar() {
+	   firebase.auth().signOut()
+	   .then(function() {
+	     $("#log-in").show();
+	     $(".uno").show();
+	     $(".tres").hide();
+	     $("#newsfeed").hide();
+	     $("#profile-mobile").hide();
+	   })
+	   .catch(function(error) {
+	 console.log("error");
+	   })
+	 };*/
+
 
 
 
@@ -126,6 +146,9 @@ function validateEmail($email) {
 var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 return emailReg.test( $email );
 }
+
+
+
 
 // MOVIES
 	 /*
@@ -162,8 +185,7 @@ return emailReg.test( $email );
 		var pelicula = $('.search-query').val();
 		for (var j in seriesArr) {
 			if(seriesArr[j] === pelicula){
-				for (var k = 0; k < seriesArr.length; i++) {
-				var series = $.getJSON('http://www.omdbapi.com/?t=' + seriesArr[k] + '&apikey=bfdd22b0');
+				var seriesSearch = $.getJSON('http://www.omdbapi.com/?t=' + seriesArr[j] + '&apikey=bfdd22b0');
 				series.then(function(responseSeries) {
 					var posterSerie = responseSeries.Poster;
 					var titleSerie = responseSeries.Title;
@@ -180,7 +202,7 @@ return emailReg.test( $email );
 																		'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
 																		'</div></div></div></div>');
 																		});
-																	}
+
 
 			}
 		}
@@ -224,7 +246,7 @@ return emailReg.test( $email );
 			 */
 			var arrayGender = [];
 			for (var i in response.genres) {
-				
+
 
 				arrayGender.push(response.genres[i].name);
 			}
@@ -372,8 +394,8 @@ function focusItems() {
   };
 
 	// funcion que coloca las series filtradas
-  $("#btn-submitFilter").click(function() {
-    $(".js-contMovieAll").empty();
+/*  $("#btn-submitFilter").click(function() {
+    $(".js-contSerieAll").empty();
     var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "the+gifted","modern+family", "supernatural", "riverdale",
                      "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us","breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
                      "american+horror+story", "blindspot", "fuller+house", "orphan+black", "ancient+aliens"]
@@ -400,67 +422,75 @@ function focusItems() {
                                       '<p class="js-gender">' + genreSerie + '</p><div class="js-stars">' +
                                       '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
                                       '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
-                                      '</div></div></div></div>');*/
+                                      '</div></div></div></div>');
           };
         };
 
 
       });
     };
-  });
+  });*/
 
 // si clickeas en series
 $("#btn-series").click(function() {
-  $(".js-contMovieAll").empty();
+          $(".js-contMovieAll").empty();
+					  $(".js-contProfile").empty();
   console.log("clic");
   var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "the+gifted","modern+family", "supernatural", "riverdale",
                    "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us", "breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
                    "american+horror+story", "blindspot", "fuller+house", "orphan+black", "ancient+aliens"]
-
-    for (var i = 0; i < seriesArr.length; i++) {
+var posterSerie;
+var titleSerie;
+var yearSerie;
+var genreSerie;
+var titleArr;
+var titleNoSpaces;
+    for (var i in seriesArr) {
     var series = $.getJSON('http://www.omdbapi.com/?t=' + seriesArr[i] + '&apikey=bfdd22b0');
     series.then(function(responseSeries) {
-      var posterSerie = responseSeries.Poster;
-      var titleSerie = responseSeries.Title;
-      var yearSerie = responseSeries.Year;
-      var genreSerie = responseSeries.Genre;
-        $(".js-contMovieAll").append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
+			 posterSerie = responseSeries.Poster;
+	 	   titleSerie = responseSeries.Title;
+	     yearSerie = responseSeries.Year;
+	 	   genreSerie = responseSeries.Genre;
+		   titleArr = titleSerie.split(" ");
+		   titleNoSpaces = titleArr.join('');
+        $(".js-contSerieAll").append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
                                   '<div class="shadow m-1"><div class="js-img-movie">' +
-                                  '<img class="img-responsive" id="imgPoster" src="' + posterSerie + '">' +
-                                  '</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+                                  '<img class="img-responsive ' + titleNoSpaces +'Poster" id="imgPoster" src="' + posterSerie + '">' +
+                                  '</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right ' + titleNoSpaces +'Save">' +
                                   '<span class="glyphicon glyphicon-bookmark"></span></button>' +
-                                  '<h4 class="js-titleMovie">' + titleSerie + '</h4><span class="js-year">(' + yearSerie + ')</span>' +
-                                  '<p class="js-gender">' + genreSerie + '</p><div class="js-stars">' +
+                                  '<h4 class="js-titleMovie ' + titleNoSpaces +'Title">' + titleSerie + '</h4><span class="js-year ' + titleNoSpaces +'Year">(' + yearSerie + ')</span>' +
+                                  '<p class="js-gender ' + titleNoSpaces +'Genre">' + genreSerie + '</p><div class="js-stars">' +
                                   '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
                                   '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
                                   '</div></div></div></div>');
 
+																	$(".StrangerThingsSave").click(function() {
+																	if ( $(this).hasClass('saveBtn') ) {
+																				 $(this).removeClass('saveBtn');
+																	} else {
+																		var database = firebase.database();
+																		var ref = database.ref().child('saved');
+																		var data = {
+																			poster: $(".StrangerThingsPoster").attr("src"),
+																			title: $(".StrangerThingsTitle").text(),
+																			year: $(".StrangerThingsYear").text(),
+																			genre: $(".StrangerThingsGenre").text()
+																		}
+																		ref.push(data);
+																		console.log(ref);
+																	 $(this).addClass('saveBtn');
+
+																	}
+
+																	});
+
       $(".js-img-movie").click(function() {
-        $(".js-contMovieAll").empty();
-        $(".js-contMovieAll").append('<div class="col-xs-12 col-sm-3 col-md-3"><div id="coverMovie">' +
-                               '<img class="img-responsive"src="' + posterSerie + '"></div></div>' +
-                               '<div class="col-xs-12 col-sm-6 col-md-7"><h1 id="titleMovie">' + titleSerie + '</h1>' +
-                               '<div id="rating">Rating</div><p id="duration">Duration</p><p id="gender">gender</p>' +
-                               '<p id="sipnosis"></p></div>')
+        $(".js-contSerieAll").empty();
+        $(".js-contProfile").append(this);
         console.log("hey");
       });
     });
-}
+};
+
 });
-
-
-/*
-
-function cerrar() {
-  firebase.auth().signOut()
-  .then(function() {
-    $("#log-in").show();
-    $(".uno").show();
-    $(".tres").hide();
-    $("#newsfeed").hide();
-    $("#profile-mobile").hide();
-  })
-  .catch(function(error) {
-console.log("error");
-  })
-};*/
