@@ -7,7 +7,20 @@ body {
 }
 
 .m-t-1 {
-    margin-top: 10em;
+    margin-top: 5%;
+}
+
+.p-reset {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.videos,
+.whiteBox {
+    padding: 5%;
+    background-color: #d3d3d3;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
 }
 
 .imgMovie img {
@@ -15,13 +28,68 @@ body {
     border-radius: 5px;
 }
 
-.imgAvatar {
-    width: 50%;
+.avatar {
+    width: 30%;
+    padding: 0.5em;
 }
 
-.suggestContact li {
+.bold {
+    text-align: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    border-bottom: 1px solid #919191;
+}
+
+.infoContact {
+    width: 95%;
+}
+
+.avatar,
+.infoContact {
+    display: inline;
+}
+
+.btn-contacts {
+    width: 100%;
+    margin-top: 1em;
+    background-color: #ff7575;
+    color: #fff;
+}
+
+.btn-icon,
+button .btn-icon {
+    color: #eb4c4c;
+    background-color: #ff757500;
+    border: none;
+    width: 1em;
+}
+
+#listContacts {
     list-style: none;
-    display: inline-block;
+    padding-left: 0;
+}
+
+#listContacts ul {
+    padding-left: 0;
+}
+
+.contact li {
+    list-style: none;
+}
+
+.name {
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.porcent {
+    font-size: 0.9em;
+    color: #882222;
+    font-weight: 800;
 }
 
 .contenedor {
@@ -83,8 +151,19 @@ body {
 
 .btn-rounded {
     border-radius: 15px;
-    background-color: rgb(192, 192, 192);
+    background-color: rgb(219, 219, 219);
     display: inline-block;
     padding: 0.5em;
 }
 
+#nameList {
+    font-weight: 700;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #919191;
+}
+
+.js-saveMovie,
+.js-likeMovie {
+    margin-right: 1.8em;
+    font-size: 1.7em;
+}
