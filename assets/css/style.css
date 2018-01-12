@@ -903,9 +903,5 @@ body {
 /*Clases a llamar con js guardar y seguir*/
 
 .saveBtn {
-  color: rgb(74, 57, 205);
-}
-
-.heartBtn {
-  color: rgb(135, 5, 5);
+  color: #ff5252;
 }

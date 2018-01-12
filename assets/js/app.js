@@ -174,10 +174,10 @@ return emailReg.test( $email );
 				console.log(datosBusqueda);
 				for (var x in datosBusqueda) {
 					response = datosBusqueda[x];
-					$('.js-contSearchvieAll').append('<div db-id="' + response.id + '" class="js-cardMovie clickCard col-xs-6 col-sm-4 col-md-3 b p-0">' +
-						'<div class="shadow m-1"><div class="js-img-movie">' +
+					$('.js-contSearchvieAll').append('<div  class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
+						'<div class="shadow m-1"><div db-id="' + response.id + '" class="js-img-movie  clickCard">' +
 						'<img class="img-responsive" id="imgPoster" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '">' +
-						'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+						'</div><div class="p-1"><button db-id="' + response.id + '"class="js-saveMovie btn-saveM pull-right">' +
 						'<span class="glyphicon glyphicon-bookmark"></span></button>' +
 						'<h4 class="js-titleMovie test">' + response.title + '</h4><span class="js-year">(' + response.release_date + ')</span>' +
 						'<p class="js-gender">genero</p><div class="js-stars">' +
@@ -186,6 +186,47 @@ return emailReg.test( $email );
 						'</div></div></div></div>'
 					);
 				}
+				$(".js-saveMovie").click(function() {
+					 $(this).addClass('saveBtn');
+								// ahora obtendremos el id de la pelicula a la cual se le dio click
+								var idPelicula = $(this).attr("db-id");
+								$(".js-contSeriesvieAll").empty();
+								$(".js-contMovievieAll").empty();
+								$(".js-contPelisvieAll").empty();
+								// ahora obtendremos el id de la pelicula a la cual se le dio click
+								var idPelicula = $(this).attr("db-id");
+								/**
+							* funcion para obtener data de la pelicula
+							*/
+								var settings = {
+									"async": true,
+									"crossDomain": true,
+									"url": "https://api.themoviedb.org/3/movie/" + idPelicula + "?language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
+									"method": "GET",
+									"headers": {},
+									"data": "{}"
+								}
+								$.ajax(settings).done(function (response) {
+									var arrayGender = [];
+									console.log(response.genres);
+									for (var i in response.genres) {
+										console.log(response.genres[i].name);
+										arrayGender.push(response.genres[i].name);
+									}
+									var database = firebase.database();
+												var users = database.ref().child('users');
+												var currentUser = users.child(firebase.auth().currentUser.uid);
+												var saved = currentUser.child("saved"); //#userName.val() del form de registro
+								    var data = {
+								      poster:  response.poster_path,
+								      title: response.original_title,
+								      year: response.release_date,
+								      genre: response.genres[i].name
+								    }
+								    saved.push(data);
+								    saved.on('value', gotDataSave(), errDataSave());
+								});
+							});
 				/**
 				* este evento se agrega justo despues de agregar el nuevo contenido ya que si
 				* se pone afuera este evento se agregara cuando el contenido no existe
@@ -237,19 +278,18 @@ return emailReg.test( $email );
 				});
 			},
 		});
-	});
+		});
 	/**
 	 * funcion para obtener data de la pelicula
 	 */
 	$('#btn-peliculas').click(function () {
-		
+
 		/* se limpia el div */
 		$(".js-contSeriesvieAll").empty();
 		$(".js-contSearchvieAll").empty();
 		$(".js-contPelisvieAll").empty();
 		$(".js-contUpcomingvieAll").empty();
-		
-		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
+				/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
 		$.ajax({
 			url: 'https://api.themoviedb.org/3/movie/popular?api_key=ca7d88c98023c60da7dcd04d4840b222&language=es-US&page=1',
 			type: 'GET',
@@ -258,10 +298,10 @@ return emailReg.test( $email );
 				console.log(datosPeliculas);
 				for (var x in datosPeliculas) {
 					response = datosPeliculas[x]
-					$('.js-contMovievieAll').append('<div db-id="' + response.id + '" class="js-cardMovie clickCard col-xs-6 col-sm-4 col-md-3 b p-0">' +
-						'<div class="shadow m-1"><div class="js-img-movie">' +
+					$('.js-contMovievieAll').append('<div  class="js-cardMovie  col-xs-6 col-sm-4 col-md-3 b p-0">' +
+						'<div class="shadow m-1"><div db-id="' + response.id + '"class="js-img-movie clickCard">' +
 						'<img class="img-responsive" id="imgPoster" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '">' +
-						'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+						'</div><div class="p-1"><button db-id="' + response.id + '"class="js-saveMovie btn-saveM pull-right">' +
 						'<span class="glyphicon glyphicon-bookmark"></span></button>' +
 						'<h4 class="js-titleMovie test">' + response.original_title + '</h4><span class="js-year">(' + response.release_date + ')</span>' +
 						'<p class="js-gender">asd</p><div class="js-stars">' +
@@ -269,16 +309,60 @@ return emailReg.test( $email );
 						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
 						'</div></div></div></div>'
 					);
-				}
+				};
+				$(".js-saveMovie").click(function() {
+					 $(this).addClass('saveBtn');
+								// ahora obtendremos el id de la pelicula a la cual se le dio click
+								var idPelicula = $(this).attr("db-id");
+								$(".js-contSeriesvieAll").empty();
+								$(".js-contSearchvieAll").empty();
+								// ahora obtendremos el id de la pelicula a la cual se le dio click
+								var idPelicula = $(this).attr("db-id");
+								/**
+							* funcion para obtener data de la pelicula
+							*/
+								var settings = {
+									"async": true,
+									"crossDomain": true,
+									"url": "https://api.themoviedb.org/3/movie/" + idPelicula + "?language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
+									"method": "GET",
+									"headers": {},
+									"data": "{}"
+								}
+								$.ajax(settings).done(function (response) {
+									var arrayGender = [];
+									console.log(response.genres);
+									for (var i in response.genres) {
+										console.log(response.genres[i].name);
+										arrayGender.push(response.genres[i].name);
+									}
+
+									var database = firebase.database();
+									      var users = database.ref().child('users');
+									      var currentUser = users.child(firebase.auth().currentUser.uid);
+									      var saved = currentUser.child("saved"); //#userName.val() del form de registro
+
+								    var data = {
+								      poster:  response.poster_path,
+								      title: response.original_title,
+								      year: response.release_date,
+								      genre: response.genres[i].name
+								    }
+								    saved.push(data);
+								    saved.on('value', gotDataSave(), errDataSave());
+
+								});
+							});
 				/**
 				* este evento se agrega justo despues de agregar el nuevo contenido ya que si
 				* se pone afuera este evento se agregara cuando el contenido no existe
 				* por ende no se le agregara el evento
 				*/
 				$(".clickCard").click(function () {
-					
+
 					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
+
 					$(".js-contMovievieAll").empty();
 					$(".js-contSeriesvieAll").empty();
 					$(".js-contSearchvieAll").empty();
@@ -320,21 +404,26 @@ return emailReg.test( $email );
 							'</div>' +
 							'</div>');
 					});
+
 				});
+
 			},
+
+
+				});
+
 		});
-	});
+
 	/**
 	 * funcion para obtener data de las series
 	 */
 	$('#btn-series').click(function () {
-		
+
 		/* se limpia el div */
 		$(".js-contMovievieAll").empty();
 		$(".js-contSearchvieAll").empty();
 		$(".js-contPelisvieAll").empty();
 		$(".js-contUpcomingvieAll").empty();
-		
 		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
 		$.ajax({
 			url: 'https://api.themoviedb.org/3/tv/popular?api_key=ca7d88c98023c60da7dcd04d4840b222&language=es-US&page=1',
@@ -343,11 +432,11 @@ return emailReg.test( $email );
 				var datosSeries = responseAjax.results;
 				console.log(datosSeries);
 				for (var x in datosSeries) {
-					response = datosSeries[x]
-					$('.js-contSeriesvieAll').append('<div db-id="' + response.id + '" class="js-cardMovie clickCard col-xs-6 col-sm-4 col-md-3 b p-0">' +
-						'<div class="shadow m-1"><div class="js-img-movie">' +
+					response = datosSeries[x];
+					$('.js-contSeriesvieAll').append('<div  class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
+						'<div class="shadow m-1"><div db-id="' + response.id + '"class="js-img-movie clickCard">' +
 						'<img class="img-responsive" id="imgPoster" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '">' +
-						'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+						'</div><div class="p-1"><button db-id="' + response.id + '"class="js-saveMovie btn-saveM pull-right">' +
 						'<span class="glyphicon glyphicon-bookmark"></span></button>' +
 						'<h4 class="js-titleMovie test">' + response.name + '</h4><span class="js-year">(' + response.first_air_date + ')</span>' +
 						'<p class="js-gender">asd</p><div class="js-stars">' +
@@ -355,14 +444,55 @@ return emailReg.test( $email );
 						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
 						'</div></div></div></div>'
 					);
-				}
+				};
+				$(".js-saveMovie").click(function() {
+					 $(this).addClass('saveBtn');
+								// ahora obtendremos el id de la pelicula a la cual se le dio click
+								var idSeries = $(this).attr("db-id");
+								$(".js-contMovievieAll").empty();
+								$(".js-contSearchvieAll").empty();
+								$(".js-contPelisvieAll").empty();
+								// ahora obtendremos el id de la pelicula a la cual se le dio click
+								var idSeries = $(this).attr("db-id");
+								/**
+							* funcion para obtener data de la pelicula
+							*/
+								var settings = {
+									"async": true,
+									"crossDomain": true,
+									"url": "https://api.themoviedb.org/3/movie/" + idSeries + "?language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
+									"method": "GET",
+									"headers": {},
+									"data": "{}"
+								}
+								$.ajax(settings).done(function (response) {
+									var arrayGender = [];
+									console.log(response.genres);
+									for (var i in response.genres) {
+										console.log(response.genres[i].name);
+										arrayGender.push(response.genres[i].name);
+									}
+									var database = firebase.database();
+												var users = database.ref().child('users');
+												var currentUser = users.child(firebase.auth().currentUser.uid);
+												var saved = currentUser.child("saved"); //#userName.val() del form de registro
+								    var data = {
+								      poster:  response.poster_path,
+								      title: response.original_title,
+								      year: response.release_date,
+								      genre: response.genres[i].name
+								    }
+								    saved.push(data);
+								    saved.on('value', gotDataSave(), errDataSave());
+								});
+							});
 				/**
 				* este evento se agrega justo despues de agregar el nuevo contenido ya que si
 				* se pone afuera este evento se agregara cuando el contenido no existe
 				* por ende no se le agregara el evento
 				*/
 				$(".clickCard").click(function () {
-					
+
 					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
 					$(".js-contMovievieAll").empty();
@@ -410,7 +540,7 @@ return emailReg.test( $email );
 			},
 		});
 	});
-	
+
 	/**
 	 * funcion para obtener data de la pelicula que se van a estrenar proximamente
 	 */
@@ -443,113 +573,14 @@ return emailReg.test( $email );
 						'</div></div></div></div>'
 					);
 				}
+
 			},
 		});
 	});
 
-// selector
-$(function () {
-	var defaultselectbox = $('#cusSelectbox');
-	var numOfOptions = $('#cusSelectbox').children('option').length;
-
-	// hide select tag
-	defaultselectbox.addClass('s-hidden');
-
-	// wrapping default selectbox into custom select block
-	defaultselectbox.wrap('<div class="cusSelBlock"></div>');
-
-	// creating custom select div
-	defaultselectbox.after('<div class="selectLabel"></div>');
-
-	// getting default select box selected value
-	$('.selectLabel').text(defaultselectbox.children('option').eq(0).text());
-
-	// appending options to custom un-ordered list tag
-	var cusList = $('<ul/>', { 'class': 'options'} ).insertAfter($('.selectLabel'));
-
-	// generating custom list items
-	for(var i = 0; i < numOfOptions; i++) {
-		$('<li/>', {
-		text: defaultselectbox.children('option').eq(i).text(),
-		rel: defaultselectbox.children('option').eq(i).val()
-		}).appendTo(cusList);
-	}
-
-	// open-list and close-list items functions
-	function openList() {
-		for(var i = 0; i < numOfOptions; i++) {
-			$('.options').children('li').eq(i).attr('tabindex', i).css(
-				'transform', 'translateY('+(i * +  100) + '%)').css(
-				'transition-delay', i * 30 +'ms');
-		}
-	}
-
-	function closeList() {
-		for(var i = 0; i < numOfOptions; i++) {
-			$('.options').children('li').eq(i).css(
-				'transform', 'translateY('+ i * 0 +'px)').css('transition-delay', i * 0 +'ms');
-      }
-		$('.options').children('li').eq(1).css('transform', 'translateY('+ 2 +'px)');
-		$('.options').children('li').eq(2).css('transform', 'translateY('+ 4 +'px)');
-	}
-
-	// click event functions
-	$('.selectLabel').click(function () {
-		$(this).toggleClass('active');
-		if ($(this).hasClass('active')) {
-			openList();
-			focusItems();
-		} else {
-			closeList();
-		}
-	});
-
-	$(".options li").on('keypress click', function(e) {
-		e.preventDefault();
-		$('.options li').siblings().removeClass();
-		closeList();
-		$('.selectLabel').removeClass('active');
-		$('.selectLabel').text($(this).text());
-		defaultselectbox.val($(this).text());
-    // Función para traer data de episodios
-    seasons();
-    $("#divEpisodesGOT").empty();
-    });
-});
-
-});
-
-function focusItems() {
-
-	$('.options').on('focus', 'li', function() {
-		$this = $(this);
-		$this.addClass('active').siblings().removeClass();
-	}).on('keydown', 'li', function(e) {
-		$this = $(this);
-		if (e.keyCode === 40) {
-			$this.next().focus();
-			return false;
-		} else if (e.keyCode === 38) {
-			$this.prev().focus();
-			return false;
-		}
-	}).find('li').first().focus();
-}
 
 
-  function seasons() {
-  var numSeason = $('.selectLabel').text();
-  var seasonsGOT = $.getJSON('http://www.omdbapi.com/?t=Game%20of%20Thrones&Season='+ numSeason +'&apikey=bfdd22b0');
-  seasonsGOT.then(function(responseSeason) {
-    var episodes = responseSeason.Episodes;
-    for(var j = 0; j < episodes.length; j++){
-    console.log(episodes[j].Title);
-    var episodesGOT = episodes[j].Title;
-    $("#divEpisodesGOT").append('<p id="episodesLink">'+ episodesGOT +'</p>');
-  }
 
-});
-  };
 
 	// funcion que coloca las series filtradas
 /*  $("#btn-submitFilter").click(function() {
@@ -589,66 +620,27 @@ function focusItems() {
     };
   });*/
 
-// si clickeas en series
-$("#btn-series").click(function() {
-          $(".js-contMovieAll").empty();
-					  $(".js-contProfile").empty();
-  console.log("clic");
-  var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "the+gifted","modern+family", "supernatural", "riverdale",
-                   "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us", "breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
-                   "american+horror+story", "blindspot", "fuller+house", "orphan+black", "ancient+aliens"]
-var posterSerie;
-var titleSerie;
-var yearSerie;
-var genreSerie;
-var titleArr;
-var titleNoSpaces;
-    for (var i in seriesArr) {
-    var series = $.getJSON('http://www.omdbapi.com/?t=' + seriesArr[i] + '&apikey=bfdd22b0');
-    series.then(function(responseSeries) {
-			 posterSerie = responseSeries.Poster;
-	 	   titleSerie = responseSeries.Title;
-	     yearSerie = responseSeries.Year;
-	 	   genreSerie = responseSeries.Genre;
-		   titleArr = titleSerie.split(" ");
-		   titleNoSpaces = titleArr.join('');
-        $(".js-contSerieAll").append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
+});
+function gotDataSave(data) {
+	   var database = firebase.database();
+	   var saved = database.ref('saved');
+     var posterSaved = saved.poster;
+     var titleSaved = saved.title;
+     var yearSaved = saved.year;
+     var genreSaved = saved.genre;
+     $("#savedContainer").append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
                                   '<div class="shadow m-1"><div class="js-img-movie">' +
-                                  '<img class="img-responsive ' + titleNoSpaces +'Poster" id="imgPoster" src="' + posterSerie + '">' +
-                                  '</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right ' + titleNoSpaces +'Save">' +
+                                  '<img class="img-responsive" src="' + posterSaved + '"></div>' +
+                                  '<div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
                                   '<span class="glyphicon glyphicon-bookmark"></span></button>' +
-                                  '<h4 class="js-titleMovie ' + titleNoSpaces +'Title">' + titleSerie + '</h4><span class="js-year ' + titleNoSpaces +'Year">(' + yearSerie + ')</span>' +
-                                  '<p class="js-gender ' + titleNoSpaces +'Genre">' + genreSerie + '</p><div class="js-stars">' +
+                                  '<h4 class="js-titleMovie">' + titleSaved + '</h4><span class="js-year">' + yearSaved + '</span>' +
+                                  '<p class="js-gender">' + genreSaved + '</p><div class="js-stars">' +
                                   '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
                                   '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
                                   '</div></div></div></div>');
+   };
 
-																	$(".StrangerThingsSave").click(function() {
-																	if ( $(this).hasClass('saveBtn') ) {
-																				 $(this).removeClass('saveBtn');
-																	} else {
-																		var database = firebase.database();
-																		var ref = database.ref().child('saved');
-																		var data = {
-																			poster: $(".StrangerThingsPoster").attr("src"),
-																			title: $(".StrangerThingsTitle").text(),
-																			year: $(".StrangerThingsYear").text(),
-																			genre: $(".StrangerThingsGenre").text()
-																		}
-																		ref.push(data);
-																		console.log(ref);
-																	 $(this).addClass('saveBtn');
-
-																	}
-
-																	});
-
-      $(".js-img-movie").click(function() {
-        $(".js-contSerieAll").empty();
-        $(".js-contProfile").append(this);
-        console.log("hey");
-      });
-    });
-};
-
-});
+   function errDataSave(err) {
+     console.log("Error!")
+     console.log(err);
+   };
