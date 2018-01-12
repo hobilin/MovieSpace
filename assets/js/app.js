@@ -368,7 +368,6 @@ $(document).ready(function () {
 
 					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
-					alert(idPelicula);
 					$(".js-contMovievieAll").empty();
 					$(".js-contSeriesvieAll").empty();
 					$(".js-contSearchvieAll").empty();
