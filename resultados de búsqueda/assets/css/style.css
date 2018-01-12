@@ -8,6 +8,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+html {
+    background-image: none;
+    background-color: #1d1e22;
+}
 
 /*CSS para formato resultado de peliculas */
 
@@ -202,3 +206,6 @@ body {
 .filter-title {
     font-weight: 700;
 }
+
+
+/* ESTILOS BARRA SUPERIOR NAV*/

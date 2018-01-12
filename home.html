@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="bkr-html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>movieSpace</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="filtroResultados/filtro.html">
+    <link rel="stylesheet" href="ProfilePelicula/profileMov.html">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <script src="assets/bootstrap/js/jquery.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://use.fontawesome.com/3f256a4698.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,800" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDy6QzxlI66qWQWghSveNsy3FvyWhikUUE",
+            authDomain: "moviespace-e0c6f.firebaseapp.com",
+            databaseURL: "https://moviespace-e0c6f.firebaseio.com",
+            projectId: "moviespace-e0c6f",
+            storageBucket: "moviespace-e0c6f.appspot.com",
+            messagingSenderId: "452969529999"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-inverse menu">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img class=" img-responsive" src="assets/images/.png" alt="MOVIESPACE">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">Registrarse</a>
+                    </li>
+                    <li>
+                        <a class="" href="#" data-toggle="modal" data-target="#myModal" role="button">Inicia Sesión</a>
+                    </li>
+                        <li class="dropdown class=" active "">
+                            <!--menu dropdown-->
+                            <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret "></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Mi Cuenta</a>
+                                </li>
+                                <li>
+                                    <a href="#">Editar Perfil</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+
+                            </ul>
+                            <li>
+                                <a class="btn-red" href="#">Cerrar Sesión</a>
+                            </li>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+ <!-- Modal login -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="text-center logo">MovieSpace</h2>
+                    <h3 class="text-center margin-top">Inicia Sesión</h3>
+                </div>
+                <div class="modal-body">
+                    <div style="padding: 20px;" id="form-olvidado">
+                        <form accept-charset="UTF-8" role="form" id="login-form" method="post">
+                            <p class="text-center">
+                                <a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a class="btn btn-primary social-login-btn social-twitter" href="/auth/twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </p>
+                            <p class="text-center">
+                                <a class="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a class="btn btn-primary social-login-btn social-google" href="/auth/google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </p>
+                            <fieldset class="margin-top">
+                                <div id="msform" class="input-group margin-top">
+                                    <input class="inputbar" type="text" name="email" placeholder="Email" />
+                                    <input class="inputbar" type="password" name="pass" placeholder="Password" />
+                                    <input type="submit" name="submit" class="btn-red submit action-button" value="Enviar" />
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>>
+            </div>
+    
+        </div>
+    </div>
+
+
+    <script src="assets/js/validate.min.js" charset="utf-8"></script>
+    <script src="assets/js/moment.min.js" charset="utf-8"></script>
+    <script src="assets/js/app.js" charset="utf-8"></script>
+    <script src="assets/data/data-movie.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+</body>
+</html>
