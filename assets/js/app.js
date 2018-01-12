@@ -161,6 +161,7 @@ return emailReg.test( $email );
 		$(".js-contSeriesvieAll").empty();
 		$(".js-contSearchvieAll").empty();
 		$(".js-contPelisvieAll").empty();
+		$(".js-contUpcomingvieAll").empty();
 
 		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
 		var busqueda = $('.search-query').val();
@@ -196,6 +197,7 @@ return emailReg.test( $email );
 					$(".js-contSeriesvieAll").empty();
 					$(".js-contSearchvieAll").empty();
 					$(".js-contPelisvieAll").empty();
+					$(".js-contUpcomingvieAll").empty();
 					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
 					/**
@@ -245,6 +247,7 @@ return emailReg.test( $email );
 		$(".js-contSeriesvieAll").empty();
 		$(".js-contSearchvieAll").empty();
 		$(".js-contPelisvieAll").empty();
+		$(".js-contUpcomingvieAll").empty();
 		
 		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
 		$.ajax({
@@ -280,6 +283,7 @@ return emailReg.test( $email );
 					$(".js-contSeriesvieAll").empty();
 					$(".js-contSearchvieAll").empty();
 					$(".js-contPelisvieAll").empty();
+					$(".js-contUpcomingvieAll").empty();
 					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
 					/**
@@ -329,6 +333,7 @@ return emailReg.test( $email );
 		$(".js-contMovievieAll").empty();
 		$(".js-contSearchvieAll").empty();
 		$(".js-contPelisvieAll").empty();
+		$(".js-contUpcomingvieAll").empty();
 		
 		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
 		$.ajax({
@@ -360,11 +365,11 @@ return emailReg.test( $email );
 					
 					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
-					alert(idPelicula);
 					$(".js-contMovievieAll").empty();
 					$(".js-contSeriesvieAll").empty();
 					$(".js-contSearchvieAll").empty();
 					$(".js-contPelisvieAll").empty();
+					$(".js-contUpcomingvieAll").empty();
 					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
 					/**
