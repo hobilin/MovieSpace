@@ -55,8 +55,8 @@ body {
     border: 0.5px solid #868686;
     background-color: #fff;
 }
-#cajita{
-  margin-top: 100px;
+.cajita{
+  margin-top: 53px;
 }
 .js-img-movie img {
     border-top-left-radius: 10px;
@@ -420,7 +420,6 @@ body {
   margin-top: -28px;
 }
 
-
 .foot{
   height: 15vh;
   width: 100%;
@@ -431,7 +430,9 @@ body {
   margin-left: 40px
 }
 .tabla1{
+  margin-top: 20px;
   margin-left: 190px;
+  line-height: 8px;
 }
 
 .fa-facebook-square:before{
@@ -450,8 +451,17 @@ body {
   font-size: 35px;
   color:#fff;
 }
-.tabla2{
+.js-contPelisvieAll{
+  background-color: #fff;
+}
+#coverMovie{
+  margin-top: 31px;
+  margin-left: 56px;
+
+}
+.margin-top{
   margin-left: 190px;
+  margin-top: 29px;
 }
 .parrafo{
   font-size: 20px;
@@ -720,10 +730,11 @@ html {
     d/*Image only BG fallback*/
     /*background = gradient + image pattern combo*/
 }
-/*
+
 .bkr-html {
     background-image: url("../img/hubble.jpg");
-}*/
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     background: rgba(255, 255, 255, 0);
@@ -731,10 +742,6 @@ body {
 
 .m-top {
     margin-top: 1.2em;
-}
-
-#mainPage{
-  padding-top: 7em;
 }
 
 .m-bottom {
@@ -762,14 +769,14 @@ body {
 
 /*form styles*/
 
-#msFormLog, #msFormReg {
+#msform {
     width: 400px;
     margin: 50px auto;
     text-align: center;
     position: relative;
 }
 
-#msFormLog fieldset, #msFormReg fieldset {
+#msform fieldset {
     background: white;
     border: 0 none;
     border-radius: 3px;
@@ -785,15 +792,15 @@ body {
 
 /*Hide all except first fieldset*/
 
-#msFormLog fieldset:not(:first-of-type), #msFormReg fieldset:not(:first-of-type) {
+#msform fieldset:not(:first-of-type) {
     display: none;
 }
 
 
 /*inputs*/
 
-#msFormLog input, #msFormReg input,
-#msFormLog textarea, #msFormReg textarea {
+#msform input,
+#msform textarea {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 20px;
@@ -804,15 +811,15 @@ body {
     font-size: 13px;
 }
 
-#msFormLog input:focus, #msFormReg input:focus,
-#msFormLog textarea:focus, #msFormReg input:focus {
+#msform input:focus,
+#msform textarea:focus {
     outline: 0px;
 }
 
 
 /*buttons*/
 
-#msFormReg .action-button, #msFormLog .action-button {
+#msform .action-button {
     width: 100%;
     background: #ff5252;
     font-weight: bold;
@@ -824,8 +831,8 @@ body {
     margin: 10px 5px;
 }
 
-#msFormReg .action-button:hover,#msFormLog .action-button:hover,
-#msFormReg .action-button:focus ,#msFormLog .action-button:hover {
+#msform .action-button:hover,
+#msform .action-button:focus {
     background-color: #c50e29;
     color: #FFFFFF;
     outline: 0px;
@@ -905,9 +912,6 @@ body {
 }
 
 
-#msFormLog, #msFormReg {
-  padding-top: 5em;
-}
 
 /*Clases a llamar con js guardar y seguir*/
 

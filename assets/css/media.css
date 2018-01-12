@@ -1,0 +1,10 @@
+@media(max-width:500px){
+.tabla1{
+  margin-left: 60px;
+  line-height:12px;
+}
+.tabla2{
+	margin-left: 10px;
+	margin-top: 18px;
+}
+};
