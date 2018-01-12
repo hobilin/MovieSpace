@@ -160,6 +160,7 @@ return emailReg.test( $email );
 		$(".js-contMovievieAll").empty();
 		$(".js-contSeriesvieAll").empty();
 		$(".js-contSearchvieAll").empty();
+		$(".js-contPelisvieAll").empty();
 
 		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
 		var busqueda = $('.search-query').val();
@@ -191,9 +192,46 @@ return emailReg.test( $email );
 				*/
 				$(".clickCard").click(function () {
 
-					/* ahora obtendremos el id de la pelicula a la cual se le dio click */
+					$(".js-contMovievieAll").empty();
+					$(".js-contSeriesvieAll").empty();
+					$(".js-contSearchvieAll").empty();
+					$(".js-contPelisvieAll").empty();
+					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
-					alert(idPelicula);
+					/**
+       * funcion para obtener data de la pelicula
+       */
+					var settings = {
+						"async": true,
+						"crossDomain": true,
+						"url": "https://api.themoviedb.org/3/movie/" + idPelicula + "?language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
+						"method": "GET",
+						"headers": {},
+						"data": "{}"
+					}
+					$.ajax(settings).done(function (response) {
+						var arrayGender = [];
+						console.log(response.genres);
+						for (var i in response.genres) {
+							console.log(response.genres[i].name);
+							arrayGender.push(response.genres[i].name);
+						}
+
+						$('.js-contPelisvieAll').append('<div class="row">' +
+							'<div class= "col-sm-3">' +
+							'<div id="coverMovie">' +
+							'<img class="img-responsive" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '" alt="">' +
+							'</div>' +
+							'</div>' +
+							'<div class="col-sm-9">' +
+							'<h1 id="titleMovie">' + response.original_title + '</h1>' +
+							'<div id="rating">' + response.popularity + '</div>' +
+							'<p id="duration">' + response.runtime + '´min</p>' +
+							'<p id="gender">' + arrayGender + '</p>' +
+							'<p id="sipnosis">' + response.overview + '</p>' +
+							'</div>' +
+							'</div>');
+					});
 				});
 			},
 		});
@@ -206,6 +244,7 @@ return emailReg.test( $email );
 		/* se limpia el div */
 		$(".js-contSeriesvieAll").empty();
 		$(".js-contSearchvieAll").empty();
+		$(".js-contPelisvieAll").empty();
 		
 		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
 		$.ajax({
@@ -235,9 +274,48 @@ return emailReg.test( $email );
 				*/
 				$(".clickCard").click(function () {
 					
-					/* ahora obtendremos el id de la pelicula a la cual se le dio click */
+					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
-					alert(idPelicula);
+					$(".js-contMovievieAll").empty();
+					$(".js-contSeriesvieAll").empty();
+					$(".js-contSearchvieAll").empty();
+					$(".js-contPelisvieAll").empty();
+					// ahora obtendremos el id de la pelicula a la cual se le dio click
+					var idPelicula = $(this).attr("db-id");
+					/**
+       * funcion para obtener data de la pelicula
+       */
+					var settings = {
+						"async": true,
+						"crossDomain": true,
+						"url": "https://api.themoviedb.org/3/movie/" + idPelicula + "?language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
+						"method": "GET",
+						"headers": {},
+						"data": "{}"
+					}
+					$.ajax(settings).done(function (response) {
+						var arrayGender = [];
+						console.log(response.genres);
+						for (var i in response.genres) {
+							console.log(response.genres[i].name);
+							arrayGender.push(response.genres[i].name);
+						}
+
+						$('.js-contPelisvieAll').append('<div class="row">' +
+							'<div class= "col-sm-3">' +
+							'<div id="coverMovie">' +
+							'<img class="img-responsive" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '" alt="">' +
+							'</div>' +
+							'</div>' +
+							'<div class="col-sm-9">' +
+							'<h1 id="titleMovie">' + response.original_title + '</h1>' +
+							'<div id="rating">' + response.popularity + '</div>' +
+							'<p id="duration">' + response.runtime + '´min</p>' +
+							'<p id="gender">' + arrayGender + '</p>' +
+							'<p id="sipnosis">' + response.overview + '</p>' +
+							'</div>' +
+							'</div>');
+					});
 				});
 			},
 		});
@@ -250,6 +328,7 @@ return emailReg.test( $email );
 		/* se limpia el div */
 		$(".js-contMovievieAll").empty();
 		$(".js-contSearchvieAll").empty();
+		$(".js-contPelisvieAll").empty();
 		
 		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
 		$.ajax({
@@ -279,9 +358,49 @@ return emailReg.test( $email );
 				*/
 				$(".clickCard").click(function () {
 					
-					/* ahora obtendremos el id de la pelicula a la cual se le dio click */
+					// ahora obtendremos el id de la pelicula a la cual se le dio click
 					var idPelicula = $(this).attr("db-id");
 					alert(idPelicula);
+					$(".js-contMovievieAll").empty();
+					$(".js-contSeriesvieAll").empty();
+					$(".js-contSearchvieAll").empty();
+					$(".js-contPelisvieAll").empty();
+					// ahora obtendremos el id de la pelicula a la cual se le dio click
+					var idPelicula = $(this).attr("db-id");
+					/**
+       * funcion para obtener data de la pelicula
+       */
+					var settings = {
+						"async": true,
+						"crossDomain": true,
+						"url": "https://api.themoviedb.org/3/tv/" + idPelicula + "?api_key=ca7d88c98023c60da7dcd04d4840b222&language=es-US",
+						"method": "GET",
+						"headers": {},
+						"data": "{}"
+					}
+					$.ajax(settings).done(function (response) {
+						var arrayGender = [];
+						console.log(response.genres);
+						for (var i in response.genres) {
+							console.log(response.genres[i].name);
+							arrayGender.push(response.genres[i].name);
+						}
+
+						$('.js-contPelisvieAll').append('<div class="row">' +
+							'<div class= "col-sm-3">' +
+							'<div id="coverMovie">' +
+							'<img class="img-responsive" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '" alt="">' +
+							'</div>' +
+							'</div>' +
+							'<div class="col-sm-9">' +
+							'<h1 id="titleMovie">' + response.name + '</h1>' +
+							'<div id="rating">' + response.popularity + '</div>' +
+							'<p id="duration">' + response.runtime + '´min</p>' +
+							'<p id="gender">' + arrayGender + '</p>' +
+							'<p id="sipnosis">' + response.overview + '</p>' +
+							'</div>' +
+							'</div>');
+					});
 				});
 			},
 		});
