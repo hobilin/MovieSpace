@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="bkr-html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>movieSpace</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="filtroResultados/filtro.html">
+  <link rel="stylesheet" href="ProfilePelicula/profileMov.html">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <script src="assets/bootstrap/js/jquery.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://use.fontawesome.com/3f256a4698.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,800" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDy6QzxlI66qWQWghSveNsy3FvyWhikUUE",
+      authDomain: "moviespace-e0c6f.firebaseapp.com",
+      databaseURL: "https://moviespace-e0c6f.firebaseio.com",
+      projectId: "moviespace-e0c6f",
+      storageBucket: "moviespace-e0c6f.appspot.com",
+      messagingSenderId: "452969529999"
+    };
+    firebase.initializeApp(config);
+
+
+  </script>
+</head>
+
+<body>
+  <!--navbar-->
+  <div class="container-fluid">
+    <nav class="navbar navbar-fixed-top navbar-inverse menu">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="img-small">
+            <a class="navbar-brand img-small" href="#">
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="logo">MovieSpace</span>
+              <span class="glyphicon glyphicon-star"></span>
+            </a>
+          </div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="container">
+                <div class="row">
+                  <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                      <input id="inputSearch" type="text" class="search-query form-control" placeholder="Ingresa tu Búsqueda" />
+                      <span class="input-group-btn">
+                        <button id="search" class="btn btn-danger" type="button">
+                          <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </li>
+            <li>
+              <a href="#">Registrarse</a>
+            </li>
+            <li>
+              <a class="" href="#" data-toggle="modal" data-target="#myModal" role="button">Inicia Sesión</a>
+            </li>
+            <li class="dropdown class=" active "">
+              <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="caret "></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <p class "glyphicon glyphicon-user red"></p>
+                  <a href="#">
+                    </p>Mi Cuenta</a>
+                </li>
+                <li role="separator" class="divider">
+                </li>
+                <li>
+                  <p class "glyphicon glyphicon-cog red"></p>
+                  <a href="#">Editar Perfil</a>
+                </li>
+                <li role="separator" class="divider">
+                </li>
+                <li>
+                  <a class="btn btn-red" href="#">Cerrar Sesión</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          </div>
+        </div>
+    </nav>
+    </div>
+
+
+    <!-- Modal login -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3 class="text-center">Inicia Sesión</h3>
+          </div>
+          <div class="modal-body">
+            <div style="padding: 20px;" id="form-olvidado">
+
+              <form accept-charset="UTF-8" role="form" id="login-form" method="post">
+                <p class="text-center">
+                  <a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                  <a class="btn btn-primary social-login-btn social-twitter" href="/auth/twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </p>
+                <p class="text-center">
+                  <a class="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                  <a class="btn btn-primary social-login-btn social-google" href="/auth/google">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </p>
+                <fieldset>
+                  <div class="form-group input-group">
+                    <span class="input-group-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <input type="text" id="inputEmailLog" name="email" placeholder="Email" />
+                  </div>
+                  <div class="form-group input-group">
+                    <span class="input-group-addon">
+                      <i class="glyphicon glyphicon-lock">
+                      </i>
+                    </span>
+                    <input class="form-control" id="inputPassLog" placeholder="Password" name="password" type="password" value="" required="">
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" id="acces" class="btn btn-primary btn-block">
+                      Access
+                    </button>
+                    <p class="help-block">
+                      <a class="pull-right text-muted" href="#" id="olvidado">
+                        <small>Forgot your password?</small>
+                      </a>
+                    </p>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Modal Search -->
+    <div id="searchModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="text-center logo">MovieSpace</h2>
+            <h3 class="text-center">Ingresa tu búsqueda</h3>
+          </div>
+          <div class="modal-body">
+            <div style="padding: 20px;" id="form-olvidado">
+              <form accept-charset="UTF-8" role="form" id="login-form" method="post">
+                <div class="container-fluid">
+                  <div class="row ">
+                    <div id="custom-search-input">
+                      <div class="input-group col-12">
+                        <input type="text" class="search-query form-control" placeholder="Search" />
+                        <span class="input-group-btn">
+                          <button class="btn btn-danger" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group input-group">
+                  <h4>Filtra por:</h4>
+                  <button type="button" class="btn btn-round ">Peliculas</button>
+                  <button type="button" class="btn btn-round" id="serieFilter">Series</button>
+                  <h4 class="margin-top">Selecciona un Género</h4>
+                  <button type="button" class="btn btn-round btn-genre" id="action" value="Action probando">Acción</button>
+                  <button type="button" class="btn btn-round btn-genre" value="Romance">Romance</button>
+                  <button type="button" class="btn btn-round btn-genre" value="Horror">Terror</button>
+                  <button type="button" class="btn btn-round btn-genre" value="Drama">Drama</button>
+                  <button type="button" class="btn btn-round btn-genre" value="Comdey">Comedia</button>
+                  <button type="button" class="btn btn-round btn-genre" value="Documentary">Documental</button>
+                  <button type="button" class="btn btn-round btn-genre" value="Thriller">Suspenso</button>
+                  <button type="button" class="btn btn-round btn-genre" value="History">Histórico</button>
+                  <button type="button" class="btn btn-round btn-genre" value="Animation">Animación</button>
+                  <button type="button" class="btn btn-round btn-genre" value="Fantasy">Fantasía</button>
+                  <button type="button" class="btn btn-round btn-genre" value="Sci-Fi">Ciencia-Ficción</button>
+                  <h4 class="margin-top">¿Como te sientes?</h4>
+                  <button type="button" class="btn btn-round btn-emotion" value="Romance Comedy Fantasy Animation">Optimista</button>
+                  <button type="button" class="btn btn-round btn-emotion" value="Drama Action Thriller">Enojado</button>
+                  <button type="button" class="btn btn-round btn-emotion" value="Romance">Enamorado</button>
+                  <button type="button" class="btn btn-round btn-emotion" value="Comedy Fantasy Animation">Estresado</button>
+                  <button type="button" class="btn btn-round btn-emotion" value="Comedy Romance Fantasy">Triste</button>
+                  <button type="button" class="btn btn-round btn-emotion" value="Documentary History">Relajado</button>
+                  <h4 class="margin-top">Otros Filtros</h4>
+                  <button type="button" class="btn btn-round btn-filter">Más Fans
+                    <span class="glyphicon glyphicon-heart">
+                  </button>
+                  <button type="button" class="btn btn-round btn-filter">Más Valoradas
+                    <span class="glyphicon glyphicon-star">
+                  </button>
+                  <button type="button" class="btn btn-round btn-filter">Tendencia
+                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-round btn-filter">Premiadas
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <!-- btn search Bar-->
+                <button type="button" id="btn-submitFilter" class="btn btn-block btn-red">
+                  Buscar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--botones de la pagina inicial-->
+    <div id="cajita" class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+          <button type="button" class="btn btn-default izquierda" id="btn-peliculas">Peliculas</button>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+          <button type="button" class="btn btn-default medio" id="btn-series">Series</button>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+          <button type="button" class="btn btn-default derecha" id="btn-upcoming">Próximos estrenos</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- pelicula formato-->
+    <div class="container-fluid">
+      <div class="row">
+        <div id="cont-results" class="m-L-R">
+          <div class="row js-contMovievieAll">
+            <!--agregado peliculas desde js-->
+          </div>
+          <div class="row js-contSeriesvieAll">
+            <!--agregado series desde js-->
+          </div>
+          <div class="row js-contProfile">
+            <!--agregado series desde js-->
+          </div>
+          <div class="row js-contPelisvieAll">
+            <!--agregado desde js-->
+          </div>
+          <div class="row js-contSearchvieAll">
+            <!--agregado desde js-->
+          </div>
+          <div class="row js-contUpcomingvieAll">
+            <!--agregado desde js-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--fin de botones de pagina inicial-->
+    <footer class="container-fluid foot navbar-fixed-bottom">
+      <div class="row">
+        <!--primera columna-->
+        <div class="col-lg-4  col-md-4 col-sm-4 col-md-4 col-xs-4 tabla1">
+          <table>
+            <tr>
+              <td>
+                <p>
+                  <a href="#">Acerca de</a>
+                </p>
+                <p>
+                  <a href="#">Contactarse</a>
+                </p>
+                <p>
+                  <a href="#">Centro de ayuda</a>
+                </p>
+              </td>
+              <td>
+            </tr>
+          </table>
+        </div>
+        <!--segunda columna-->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-md-4 col-xs-4 tabla2">
+          <span>
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+            <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </footer>
+    </section>
+    <script src="assets/js/validate.min.js" charset="utf-8"></script>
+    <script src="assets/js/moment.min.js" charset="utf-8"></script>
+    <script src="assets/js/app.js" charset="utf-8"></script>
+    <script src="assets/data/data-movie.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+</body>
+
+</html>
