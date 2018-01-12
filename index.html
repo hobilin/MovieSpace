@@ -133,18 +133,18 @@
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top:2em">
             <ul class="nav navbar-nav">
               <li class="active"><!-- Search Bar -->
                 <li>
-                  <form action="javascript:getMovie()">
-                    <a href="#"><input type="text" class="search-query form-control" placeholder="Search" /></a>
-                    <li>
-                      <button class="btn btn-danger" type="button">
-                        <i class="glyphicon glyphicon-search"></i>
-                      </button>
-                    </li>
-                  </form>
+                  <a href="#">
+                    <input name="query" type="text" class="search-query form-control" placeholder="Search" />
+                  </a>
+                  <li>
+                    <button id="search" class="btn btn-danger" type="button">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </li>
                 </li>
               </li>
             </ul>
@@ -319,16 +319,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div id="cont-results" class="m-L-R">
-                    <div class="row js-contMovieAll">
+                    <div class="row js-contMovievieAll">
                       <!--agregado peliculas desde js-->
                     </div>
-                    <div class="row js-contSerieAll">
+                    <div class="row js-contSeriesvieAll">
                         <!--agregado series desde js-->
                     </div>
                     <div class="row js-contProfile">
                         <!--agregado series desde js-->
                     </div>
                     <div class="row js-contPelisvieAll">
+                      <!--agregado desde js-->
+                    </div>
+                    <div class="row js-contSearchvieAll">
                       <!--agregado desde js-->
                     </div>
                 </div>

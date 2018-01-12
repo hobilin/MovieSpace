@@ -151,143 +151,142 @@ return emailReg.test( $email );
 
 
 // MOVIES
-	 /*
-		* funcion para obetener nombre y id
-		*/
-	var data = movie.movies;
-	var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "the+gifted","modern+family", "supernatural", "riverdale",
-									 "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us","breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
-									 "american+horror+story", "blindspot", "fuller+house", "orphan+black", "ancient+aliens"];
-	var dataMovie = [];
-
-	for (var i in data) {
-		dataMovie.push(data[i].name);
-	}
-
-	for (var l in seriesArr) {
-		dataMovie.push(seriesArr[l])
-		}
-
-	/*
- * funcion de autocompletado en el buscador
- */
-	$(".search-query").autocomplete({
-		source: dataMovie
-	});
 	/**
-	 * funcion para obtener data de las peliculas por el buscador
+	 * funcion para el buscador
 	 */
-	function getMovie() {
-		var seriesArr = ["black+mirror", "game+of+thrones", "vikings", "shameless", "stranger+things", "peaky+blinders", "the+crown", "dark", "the+walking+dead", "the+punisher", "the+x+files", "lucifer", "travelers", "the+flash", "the+gifted","modern+family", "supernatural", "riverdale",
-                     "criminal+minds", "the+blacklist", "runaways", "arrow", "rick+and+morty", "mindhunter", "mcmafia", "doctor+who", "the+big+bang+theory", "suits", "the+office", "this+is+us","breaking-bad", "the+good+doctor", "bates+motel", "ncis", "the+100", "outlander", "gotham",
-                     "american+horror+story", "blindspot", "fuller+house", "orphan+black", "ancient+aliens"];
-		var data = movie.movies;
-		var pelicula = $('.search-query').val();
-		for (var j in seriesArr) {
-			if(seriesArr[j] === pelicula){
-				var seriesSearch = $.getJSON('http://www.omdbapi.com/?t=' + seriesArr[j] + '&apikey=bfdd22b0');
-				series.then(function(responseSeries) {
-					var posterSerie = responseSeries.Poster;
-					var titleSerie = responseSeries.Title;
-					var yearSerie = responseSeries.Year;
-					var genreSerie = responseSeries.Genre;
-					$(".js-contMovieAll").append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
-																		'<div class="shadow m-1"><div class="js-img-movie">' +
-																		'<img class="img-responsive" id="imgPoster" src="' + posterSerie + '">' +
-																		'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
-																		'<span class="glyphicon glyphicon-bookmark"></span></button>' +
-																		'<h4 class="js-titleMovie">' + titleSerie + '</h4><span class="js-year">(' + yearSerie + ')</span>' +
-																		'<p class="js-gender">' + genreSerie + '</p><div class="js-stars">' +
-																		'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
-																		'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
-																		'</div></div></div></div>');
-																		});
+	$('#search').click(function () {
 
+		/* se limpia el div */
+		$(".js-contMovievieAll").empty();
+		$(".js-contSeriesvieAll").empty();
+		$(".js-contSearchvieAll").empty();
 
-			}
-		}
-		for(var i in data){
-			if(data[i].name === pelicula){
-				/**
-       * fincion para obtener trailer de la pelicula
-       */
-				var settings = {
-					"async": true,
-					"crossDomain": true,
-					"url": "https://api.themoviedb.org/3/movie/" + data[i].id + "/videos?language=en-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
-					"method": "GET",
-					"headers": {},
-					"data": "{}"
+		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
+		var busqueda = $('.search-query').val();
+		var name = busqueda.replace(' ', '+');
+		$.ajax({
+			url: 'https://api.themoviedb.org/3/search/multi?include_adult=false&page=1&query=' + name + '&language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222',
+			type: 'GET',
+			success: function (responseAjax) {
+				var datosBusqueda = responseAjax.results;
+				console.log(datosBusqueda);
+				for (var x in datosBusqueda) {
+					response = datosBusqueda[x];
+					$('.js-contSearchvieAll').append('<div db-id="' + response.id + '" class="js-cardMovie clickCard col-xs-6 col-sm-4 col-md-3 b p-0">' +
+						'<div class="shadow m-1"><div class="js-img-movie">' +
+						'<img class="img-responsive" id="imgPoster" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '">' +
+						'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+						'<span class="glyphicon glyphicon-bookmark"></span></button>' +
+						'<h4 class="js-titleMovie test">' + response.title + '</h4><span class="js-year">(' + response.release_date + ')</span>' +
+						'<p class="js-gender">genero</p><div class="js-stars">' +
+						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
+						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
+						'</div></div></div></div>'
+					);
 				}
-				$.ajax(settings).done(function (trailer) {
-					console.log(trailer);
-					console.log(trailer.results[0].key);
-					//$('.trailer').append('<iframe width="426" height="240" src="https://www.youtube.com/embed/' + trailer.results[0].key + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+				/**
+				* este evento se agrega justo despues de agregar el nuevo contenido ya que si
+				* se pone afuera este evento se agregara cuando el contenido no existe
+				* por ende no se le agregara el evento
+				*/
+				$(".clickCard").click(function () {
+
+					/* ahora obtendremos el id de la pelicula a la cual se le dio click */
+					var idPelicula = $(this).attr("db-id");
+					alert(idPelicula);
 				});
-			}
-		}
-	}
+			},
+		});
+	});
 	/**
 	 * funcion para obtener data de la pelicula
 	 */
-	var data = movie.movies;
-	for(var h in data){
-		var settings = {
-			"async": true,
-			"crossDomain": true,
-			"url": "https://api.themoviedb.org/3/movie/" + data[h].id + "?language=es-US&api_key=ca7d88c98023c60da7dcd04d4840b222",
-			"method": "GET",
-			"headers": {},
-			"data": "{}"
-		}
-		$.ajax(settings).done(function (response) {
-			/**
-			 * identificar genero de la pelicula y guardarlo en un array
-			 */
-			var arrayGender = [];
-			for (var i in response.genres) {
-
-
-				arrayGender.push(response.genres[i].name);
-			}
-			$('#btn-peliculas').click(function () {
-				$(".js-contMovieAll").empty();
-				$('.js-contPelisvieAll').append('<div class="js-cardMovie col-xs-6 col-sm-4 col-md-3 b p-0">' +
-					'<div class="shadow m-1"><div class="js-img-movie">' +
-					'<img class="img-responsive" id="imgPoster" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '">' +
-					'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
-					'<span class="glyphicon glyphicon-bookmark"></span></button>' +
-					'<h4 class="js-titleMovie">' + response.original_title + '</h4><span class="js-year">(' + response.release_date + ')</span>' +
-					'<p class="js-gender">' + arrayGender + '</p><div class="js-stars">' +
-					'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
-					'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
-					'</div></div></div></div>');
-			})
+	$('#btn-peliculas').click(function () {
+		
+		/* se limpia el div */
+		$(".js-contSeriesvieAll").empty();
+		$(".js-contSearchvieAll").empty();
+		
+		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
+		$.ajax({
+			url: 'https://api.themoviedb.org/3/movie/popular?api_key=ca7d88c98023c60da7dcd04d4840b222&language=es-US&page=1',
+			type: 'GET',
+			success: function (responseAjax) {
+				var datosPeliculas = responseAjax.results;
+				console.log(datosPeliculas);
+				for (var x in datosPeliculas) {
+					response = datosPeliculas[x]
+					$('.js-contMovievieAll').append('<div db-id="' + response.id + '" class="js-cardMovie clickCard col-xs-6 col-sm-4 col-md-3 b p-0">' +
+						'<div class="shadow m-1"><div class="js-img-movie">' +
+						'<img class="img-responsive" id="imgPoster" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '">' +
+						'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+						'<span class="glyphicon glyphicon-bookmark"></span></button>' +
+						'<h4 class="js-titleMovie test">' + response.original_title + '</h4><span class="js-year">(' + response.release_date + ')</span>' +
+						'<p class="js-gender">asd</p><div class="js-stars">' +
+						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
+						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
+						'</div></div></div></div>'
+					);
+				}
+				/**
+				* este evento se agrega justo despues de agregar el nuevo contenido ya que si
+				* se pone afuera este evento se agregara cuando el contenido no existe
+				* por ende no se le agregara el evento
+				*/
+				$(".clickCard").click(function () {
+					
+					/* ahora obtendremos el id de la pelicula a la cual se le dio click */
+					var idPelicula = $(this).attr("db-id");
+					alert(idPelicula);
+				});
+			},
 		});
-
-	}
-
-
-
-
-  $("#gotPoster").click(function() {
-    $("#serieSeason").append('<div class="container">' +
-                             '<select name="" id="cusSelectbox">' +
-                             '<option value="seasons">temporadas</option>' +
-    			                   '<option value="one" id="one">1</option>' +
-    			                   '<option value="two" id="two">2</option>' +
-    			                   '<option value="three" id="three">3</option>' +
-    			                   '<option value="four" id="four">4</option>' +
-    			                   '<option value="five" id="five">5</option>' +
-    			                   '<option value="six" id="six">6</option>' +
-                             '<option value="seven" id="seven">7</option>' +
-                             '<option value="eight" id="eight">8</option>' +
-    		                     '</select>' +
-    	                       '</div>' +
-                             '<div id="divEpisodesGOT">' +
-                             '<a href="#"></a>' +
-                             '</div>')
-  });
+	});
+	/**
+	 * funcion para obtener data de las series
+	 */
+	$('#btn-series').click(function () {
+		
+		/* se limpia el div */
+		$(".js-contMovievieAll").empty();
+		$(".js-contSearchvieAll").empty();
+		
+		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
+		$.ajax({
+			url: 'https://api.themoviedb.org/3/tv/popular?api_key=ca7d88c98023c60da7dcd04d4840b222&language=es-US&page=1',
+			type: 'GET',
+			success: function (responseAjax) {
+				var datosSeries = responseAjax.results;
+				console.log(datosSeries);
+				for (var x in datosSeries) {
+					response = datosSeries[x]
+					$('.js-contSeriesvieAll').append('<div db-id="' + response.id + '" class="js-cardMovie clickCard col-xs-6 col-sm-4 col-md-3 b p-0">' +
+						'<div class="shadow m-1"><div class="js-img-movie">' +
+						'<img class="img-responsive" id="imgPoster" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '">' +
+						'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+						'<span class="glyphicon glyphicon-bookmark"></span></button>' +
+						'<h4 class="js-titleMovie test">' + response.name + '</h4><span class="js-year">(' + response.first_air_date + ')</span>' +
+						'<p class="js-gender">asd</p><div class="js-stars">' +
+						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
+						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
+						'</div></div></div></div>'
+					);
+				}
+				/**
+				* este evento se agrega justo despues de agregar el nuevo contenido ya que si
+				* se pone afuera este evento se agregara cuando el contenido no existe
+				* por ende no se le agregara el evento
+				*/
+				$(".clickCard").click(function () {
+					
+					/* ahora obtendremos el id de la pelicula a la cual se le dio click */
+					var idPelicula = $(this).attr("db-id");
+					alert(idPelicula);
+				});
+			},
+		});
+	});
+	
 
 // selector
 $(function () {
