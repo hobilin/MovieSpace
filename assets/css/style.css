@@ -720,11 +720,10 @@ html {
     d/*Image only BG fallback*/
     /*background = gradient + image pattern combo*/
 }
-
+/*
 .bkr-html {
     background-image: url("../img/hubble.jpg");
-}
-
+}*/
 body {
     font-family: 'Open Sans', sans-serif;
     background: rgba(255, 255, 255, 0);
@@ -732,6 +731,10 @@ body {
 
 .m-top {
     margin-top: 1.2em;
+}
+
+#mainPage{
+  padding-top: 7em;
 }
 
 .m-bottom {
@@ -759,14 +762,14 @@ body {
 
 /*form styles*/
 
-#msform {
+#msFormLog, #msFormReg {
     width: 400px;
     margin: 50px auto;
     text-align: center;
     position: relative;
 }
 
-#msform fieldset {
+#msFormLog fieldset, #msFormReg fieldset {
     background: white;
     border: 0 none;
     border-radius: 3px;
@@ -782,15 +785,15 @@ body {
 
 /*Hide all except first fieldset*/
 
-#msform fieldset:not(:first-of-type) {
+#msFormLog fieldset:not(:first-of-type), #msFormReg fieldset:not(:first-of-type) {
     display: none;
 }
 
 
 /*inputs*/
 
-#msform input,
-#msform textarea {
+#msFormLog input, #msFormReg input,
+#msFormLog textarea, #msFormReg textarea {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 20px;
@@ -801,15 +804,15 @@ body {
     font-size: 13px;
 }
 
-#msform input:focus,
-#msform textarea:focus {
+#msFormLog input:focus, #msFormReg input:focus,
+#msFormLog textarea:focus, #msFormReg input:focus {
     outline: 0px;
 }
 
 
 /*buttons*/
 
-#msform .action-button {
+#msFormReg .action-button, #msFormLog .action-button {
     width: 100%;
     background: #ff5252;
     font-weight: bold;
@@ -821,8 +824,8 @@ body {
     margin: 10px 5px;
 }
 
-#msform .action-button:hover,
-#msform .action-button:focus {
+#msFormReg .action-button:hover,#msFormLog .action-button:hover,
+#msFormReg .action-button:focus ,#msFormLog .action-button:hover {
     background-color: #c50e29;
     color: #FFFFFF;
     outline: 0px;
@@ -902,6 +905,9 @@ body {
 }
 
 
+#msFormLog, #msFormReg {
+  padding-top: 5em;
+}
 
 /*Clases a llamar con js guardar y seguir*/
 
