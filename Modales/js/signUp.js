@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 $(document).ready(function () {
     $("#next1").click(function () {
         $("#form-cont").remove();
@@ -43,5 +41,9 @@ $(document).ready(function () {
             });
         });
     });
+<<<<<<< Updated upstream
+});
+});
+=======
 });
 >>>>>>> Stashed changes

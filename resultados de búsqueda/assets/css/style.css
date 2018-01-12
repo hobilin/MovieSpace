@@ -84,12 +84,11 @@ html {
 /* CSS MODAL DE PRUEBA PARA BUSQUEDAS SE PUEDE BORRAR*/
 
 #logo {
-    height: 50px;
+    height: 2em;
     width: 100px;
 }
 
 .logo1 {
-    font-family: 'Indie Flower', cursive;
     font-size: 35px;
     margin-top: 11px;
 }
@@ -146,7 +145,7 @@ html {
 .btn-red {
     background-color: #ff5252;
     background-image: none;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     color: #FFFFFF;
 }
@@ -168,6 +167,21 @@ html {
 .badgeTag {
     background-color: #FFF;
     color: #ff5252;
+}
+
+.btn-bar {
+    padding: 0;
+    border-radius: 3px;
+}
+
+.btn-bar:active {
+    padding: 0;
+    border-radius: 3px;
+}
+
+.btn-bar:hover {
+    padding: 0;
+    border-radius: 3px;
 }
 
 
@@ -214,12 +228,17 @@ html {
     font-size: 0.5em;
 }
 
-#img-small img {
+.img-small img {
     width: 1em;
     height: 2em;
 }
 
-#img-small {
+.img-small {
+    width: 1em;
+    height: 2em;
+}
+
+.img-small a {
     width: 1em;
     height: 2em;
 }
