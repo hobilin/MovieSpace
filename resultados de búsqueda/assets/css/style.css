@@ -208,17 +208,18 @@ html {
     font-weight: 700;
 }
 
-.search-query .form-control {}
-
 .red img {
     width: 2%;
     color: #ff5252 !important;
     font-size: 0.5em;
 }
 
-.
-#img-small, #img-small img {
+#img-small img {
     width: 1em;
     height: 2em;
 }
 
+#img-small {
+    width: 1em;
+    height: 2em;
+}
