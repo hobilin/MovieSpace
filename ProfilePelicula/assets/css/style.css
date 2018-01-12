@@ -1,11 +1,18 @@
-
+body {
+    background-color: rgb(201, 201, 201);
+}
 
 .movieProfile {
     margin: 5%;
 }
 
+.m-t-1 {
+    margin-top: 10em;
+}
+
 .imgMovie img {
     width: 20%;
+    border-radius: 5px;
 }
 
 .imgAvatar {
@@ -16,3 +23,68 @@
     list-style: none;
     display: inline-block;
 }
+
+.contenedor {
+    height: 200vh;
+    width: 100%;
+    padding-top: 25px;
+    padding-left: 35px;
+    padding-right: 35px;
+    background-color: red;
+}
+
+.usuario {
+    background-color: blue;
+    height: 332px;
+    border: 1px solid black;
+    margin-right: 35px;
+}
+
+.circle {
+    height: 200px;
+    width: 250px;
+    margin-top: 30px;
+    margin-left: 27px;
+}
+
+#name {
+    margin-left: 50px;
+}
+
+.caja1 {
+    height: 332px;
+    background-color: yellow;
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.caja2 {
+    height: 332px;
+    background-color: green;
+    width: 70%;
+    margin-bottom: 20px;
+    margin-left: 28%;
+}
+
+.caja3 {
+    height: 332px;
+    background-color: purple;
+    width: 70%;
+    margin-bottom: 20px;
+    margin-left: 28%;
+}
+
+.shadow {
+    -webkit-box-shadow: 2px 1px 15px 0px rgba(0, 0, 0, 0.63);
+    -moz-box-shadow: 2px 1px 15px 0px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 1px 15px 0px rgba(0, 0, 0, 0.63);
+    border-radius: 5px;
+}
+
+.btn-rounded {
+    border-radius: 15px;
+    background-color: rgb(192, 192, 192);
+    display: inline-block;
+    padding: 0.5em;
+}
+

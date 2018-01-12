@@ -52,3 +52,20 @@
     margin-bottom: 20px;
     margin-left: 28%;
 }
+
+.movieProfile {
+    margin: 5%;
+}
+
+.imgMovie img {
+    width: 20%;
+}
+
+.imgAvatar {
+    width: 50%;
+}
+
+.suggestContact li {
+    list-style: none;
+    display: inline-block;
+}
