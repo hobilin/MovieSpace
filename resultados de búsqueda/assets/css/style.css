@@ -143,15 +143,14 @@ html {
 }
 
 .btn-red {
-    background-color: #ff5252;
+    background-color: #f77575;
     background-image: none;
-    border-radius: 5px;
     border: none;
     color: #FFFFFF;
 }
 
 .btn-red:hover {
-    background-color: #c50e29;
+    background-color: #ca0725;
     color: #FFFFFF;
 }
 
@@ -241,4 +240,8 @@ html {
 .img-small a {
     width: 1em;
     height: 2em;
+}
+
+.btn {
+    border-radius: 0;
 }

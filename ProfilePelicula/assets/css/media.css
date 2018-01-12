@@ -1,0 +1,38 @@
+/*media para dispositivos moviles xs*/
+
+@media(max-width:400px) {
+    .contenedor {
+        padding-top: 20px;
+        height: auto;
+    }
+    .circle {
+        margin-left: 7px;
+    }
+    #name {
+        margin-left: 32px;
+    }
+    .caja1 {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #favoritos {
+        padding-left: 40px;
+    }
+    .caja2 {
+        margin-left: 0;
+        width: 100%;
+    }
+    #veo {
+        padding-left: 40px;
+    }
+    .caja3 {
+        margin-left: 0;
+        width: 100%;
+    }
+    #ver {
+        padding-left: 40px;
+    }
+}
+
+;

@@ -29,6 +29,7 @@
   };
   firebase.initializeApp(config);
 
+
 </script>
 </head>
   <body>
@@ -44,7 +45,7 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="#">
-                <img class=" img-responsive" src="" alt="MOVIESPACE">
+                <img class=" img-responsive" src="assets/images/.png" alt="MOVIESPACE">
               </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -132,18 +133,18 @@
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top:2em">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="active"><!-- Search Bar -->
                 <li>
-                  <a href="#">
-                    <input name="query" type="text" class="search-query form-control" placeholder="Search" />
-                  </a>
-                  <li>
-                    <button id="search" class="btn btn-danger" type="button">
-                      <i class="glyphicon glyphicon-search"></i>
-                    </button>
-                  </li>
+                  <form action="javascript:getMovie()">
+                    <a href="#"><input type="text" class="search-query form-control" placeholder="Search" /></a>
+                    <li>
+                      <button class="btn btn-danger" type="button">
+                        <i class="glyphicon glyphicon-search"></i>
+                      </button>
+                    </li>
+                  </form>
                 </li>
               </li>
             </ul>
@@ -318,10 +319,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div id="cont-results" class="m-L-R">
-                    <div class="row js-contMovievieAll">
+                    <div class="row js-contMovieAll">
                       <!--agregado peliculas desde js-->
                     </div>
-                    <div class="row js-contSeriesvieAll">
+                    <div class="row js-contSerieAll">
                         <!--agregado series desde js-->
                     </div>
                     <div class="row js-contProfile">

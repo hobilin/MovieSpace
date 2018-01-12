@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.contenedor {
+    height: 200vh;
+    width: 100%;
+    padding-top: 25px;
+    padding-left: 35px;
+    padding-right: 35px;
+    background-color: red;
+}
+
+.usuario {
+    background-color: blue;
+    height: 332px;
+    border: 1px solid black;
+    margin-right: 35px;
+}
+
+.circle {
+    height: 200px;
+    width: 250px;
+    margin-top: 30px;
+    margin-left: 27px;
+}
+
+#name {
+    margin-left: 50px;
+}
+
+.caja1 {
+    height: 332px;
+    background-color: yellow;
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.caja2 {
+    height: 332px;
+    background-color: green;
+    width: 70%;
+    margin-bottom: 20px;
+    margin-left: 28%;
+}
+
+.caja3 {
+    height: 332px;
+    background-color: purple;
+    width: 70%;
+    margin-bottom: 20px;
+    margin-left: 28%;
+}
