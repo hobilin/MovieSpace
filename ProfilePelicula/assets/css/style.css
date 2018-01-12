@@ -178,5 +178,28 @@ button .btn-icon {
 }
 
 .nav .nav-pills {
-    color:#eb4c4c;
+    color: #eb4c4c;
+}
+
+.follow {
+    color: #008b07;
+}
+
+.nofollow {
+    color: #919191;
+}
+
+.infoContact p {
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+.btn-follow {
+    border-radius: 20px;
+    background-color: #3ec945;
+}
+
+.btn-nofollow {
+    border-radius: 20px;
+    background-color: #a0a0a0;
 }
