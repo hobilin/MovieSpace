@@ -406,6 +406,41 @@ return emailReg.test( $email );
 		});
 	});
 	
+	/**
+	 * funcion para obtener data de la pelicula que se van a estrenar proximamente
+	 */
+	$('#btn-upcoming').click(function () {
+
+		/* se limpia el div */
+		$(".js-contSeriesvieAll").empty();
+		$(".js-contSearchvieAll").empty();
+		$(".js-contPelisvieAll").empty();
+		$(".js-contMovievieAll").empty();
+
+		/* esto es una llamada a la api que nos obtendra las peliculas mas populares */
+		$.ajax({
+			url: 'https://api.themoviedb.org/3/movie/upcoming?api_key=ca7d88c98023c60da7dcd04d4840b222&language=es-US&page=1',
+			type: 'GET',
+			success: function (responseAjax) {
+				var datosUpcoming = responseAjax.results;
+				console.log(datosUpcoming);
+				for (var x in datosUpcoming) {
+					response = datosUpcoming[x]
+					$('.js-contUpcomingvieAll').append('<div db-id="' + response.id + '" class="js-cardMovie clickCard col-xs-6 col-sm-4 col-md-3 b p-0">' +
+						'<div class="shadow m-1"><div class="js-img-movie">' +
+						'<img class="img-responsive" id="imgPoster" src="https://image.tmdb.org/t/p/w185/' + response.poster_path + '">' +
+						'</div><div class="p-1"><button class="js-saveMovie btn-saveM pull-right">' +
+						'<span class="glyphicon glyphicon-bookmark"></span></button>' +
+						'<h4 class="js-titleMovie test">' + response.original_title + '</h4><span class="js-year">(' + response.release_date + ')</span>' +
+						'<p class="js-gender">asd</p><div class="js-stars">' +
+						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>' +
+						'<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>' +
+						'</div></div></div></div>'
+					);
+				}
+			},
+		});
+	});
 
 // selector
 $(function () {
