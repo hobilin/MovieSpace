@@ -43,38 +43,58 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <img class=" img-responsive" src="assets/images/.png" alt="MOVIESPACE">
+                <div class="img-small">
+                    <a class="navbar-brand" href="#">
+                    <span class="glyphicon glyphicon-star"></span>
+                        <img  class="img-small" src="assets/img/logo1.png" alt="MOVIESPACE">
+                        <span class="glyphicon glyphicon-star"></span>
                 </a>
+                </div>
+
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                    <!-- Search Bar de practica para fronts-ends puedan probar búsqueda-->
+                    <div class="container">
+                        <div class="row">
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-12">
+                                    <input id="inputSearch" type="text" class="search-query form-control" placeholder="Ingresa tu Búsqueda" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger" type="button">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     <li>
                         <a href="#">Registrarse</a>
                     </li>
                     <li>
                         <a class="" href="#" data-toggle="modal" data-target="#myModal" role="button">Inicia Sesión</a>
                     </li>
-                        <li class="dropdown class=" active "">
-                            <!--menu dropdown-->
-                            <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="caret "></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">Mi Cuenta</a>
-                                </li>
-                                <li>
-                                    <a href="#">Editar Perfil</a>
-                                </li>
-                                <li role="separator" class="divider"></li>
-
-                            </ul>
+                    <li class="dropdown class=" active "">
+                        <!--menu dropdown-->
+                        <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret "></span>
+                        </a>
+                        <ul class="dropdown-menu">
                             <li>
-                                <a class="btn-red" href="#">Cerrar Sesión</a>
+                                <a href="#">Mi Cuenta</a>
                             </li>
+                            <li>
+                                <a href="#">Editar Perfil</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                        </ul>
+                        <li>
+                            <a class="btn-red" href="#">Cerrar Sesión</a>
                         </li>
+                    </li>
                 </ul>
             </div>
         </div>
