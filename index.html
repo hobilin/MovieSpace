@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="bkr-html">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,23 +18,24 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,800" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDy6QzxlI66qWQWghSveNsy3FvyWhikUUE",
-    authDomain: "moviespace-e0c6f.firebaseapp.com",
-    databaseURL: "https://moviespace-e0c6f.firebaseio.com",
-    projectId: "moviespace-e0c6f",
-    storageBucket: "moviespace-e0c6f.appspot.com",
-    messagingSenderId: "452969529999"
-  };
-  firebase.initializeApp(config);
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDy6QzxlI66qWQWghSveNsy3FvyWhikUUE",
+      authDomain: "moviespace-e0c6f.firebaseapp.com",
+      databaseURL: "https://moviespace-e0c6f.firebaseio.com",
+      projectId: "moviespace-e0c6f",
+      storageBucket: "moviespace-e0c6f.appspot.com",
+      messagingSenderId: "452969529999"
+    };
+    firebase.initializeApp(config);
 
 
   </script>
 </head>
 
 <body>
+<<<<<<< HEAD
   <section id="perfilUser">
     <div class="container-fluid p-reset m-t-1">
         <div class="row p-reset m-reset">
@@ -356,6 +358,10 @@
   </section>
   <section id="home">
     <!--navbar-->
+=======
+  <!--navbar-->
+  <div class="container-fluid">
+>>>>>>> arreglando funcionalidades
     <nav class="navbar navbar-fixed-top navbar-inverse menu">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -395,6 +401,7 @@
                     </a>
 
         </div>
+<<<<<<< HEAD
         Collect the nav links, forms, and other content for toggling -->
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -414,6 +421,36 @@
                   </li>
                 </ul>
 
+=======
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="container">
+                <div class="row">
+                  <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                      <input id="inputSearch" type="text" class="search-query form-control" placeholder="Ingresa tu Búsqueda" />
+                      <span class="input-group-btn">
+                        <button id="search" class="btn btn-danger" type="button">
+                          <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </li>
+            <li>
+              <a href="#">Registrarse</a>
+            </li>
+            <li>
+              <a class="" href="#" data-toggle="modal" data-target="#myModal" role="button">Inicia Sesión</a>
+            </li>
+            <li class="dropdown class=" active "">
+              <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="caret "></span>
+              </a>
+              <ul class="dropdown-menu">
+>>>>>>> arreglando funcionalidades
                 <li>
                   <a href="#" id="signUp">Registrarse</a>
                 </li>
@@ -481,6 +518,7 @@
             </div>
           </div>>
         </div>
+<<<<<<< HEAD
 
       </div>
     </div>
@@ -655,6 +693,11 @@
       </nav>
     </div>
     <!--fin barra de navegación-->
+=======
+    </nav>
+    </div>
+
+>>>>>>> arreglando funcionalidades
 
     <!-- Modal login -->
     <div id="myModal" class="modal fade" role="dialog">
@@ -697,11 +740,18 @@
                       <i class="glyphicon glyphicon-lock">
                       </i>
                     </span>
+<<<<<<< HEAD
 
                         <input class="form-control" id="inputPassLog" placeholder="Password" name="password" type="password" value="" required="">
                       </div>
                       <div class="form-group">
                         <button type="submit" id="acces" class="btn btn-primary btn-block">
+=======
+                    <input class="form-control" id="inputPassLog" placeholder="Password" name="password" type="password" value="" required="">
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" id="acces" class="btn btn-primary btn-block">
+>>>>>>> arreglando funcionalidades
                       Access
                     </button>
                         <p class="help-block">
@@ -727,7 +777,7 @@
                   <button type="button" class="btn btn-round ">Peliculas</button>
                   <button type="button" class="btn btn-round" id="serieFilter">Series</button>
                   <h4 class="margin-top">Selecciona un Género</h4>
-                  <button type="button" class="btn btn-round btn-genre" id="action"value="Action probando">Acción</button>
+                  <button type="button" class="btn btn-round btn-genre" id="action" value="Action probando">Acción</button>
                   <button type="button" class="btn btn-round btn-genre" value="Romance">Romance</button>
                   <button type="button" class="btn btn-round btn-genre" value="Horror">Terror</button>
                   <button type="button" class="btn btn-round btn-genre" value="Drama">Drama</button>
@@ -748,30 +798,30 @@
                   <h4 class="margin-top">Otros Filtros</h4>
                   <button type="button" class="btn btn-round btn-filter">Más Fans
                     <span class="glyphicon glyphicon-heart">
-                    </button>
-                    <button type="button" class="btn btn-round btn-filter">Más Valoradas
-                      <span class="glyphicon glyphicon-star">
-                      </button>
-                      <button type="button" class="btn btn-round btn-filter">Tendencia
-                        <i class="fa fa-line-chart" aria-hidden="true"></i>
-                      </button>
-                      <button type="button" class="btn btn-round btn-filter">Premiadas
-                        <i class="fa fa-trophy" aria-hidden="true"></i>
-                      </button>
-                    </div>
-                    <!-- btn search Bar-->
-                    <button type="button" id="btn-submitFilter" class="btn btn-block btn-red">
-                      Buscar
-                    </button>
-                  </form>
+                  </button>
+                  <button type="button" class="btn btn-round btn-filter">Más Valoradas
+                    <span class="glyphicon glyphicon-star">
+                  </button>
+                  <button type="button" class="btn btn-round btn-filter">Tendencia
+                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-round btn-filter">Premiadas
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                  </button>
                 </div>
-              </div>
+                <!-- btn search Bar-->
+                <button type="button" id="btn-submitFilter" class="btn btn-block btn-red">
+                  Buscar
+                </button>
+              </form>
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <!--botones de la pagina inicial-->
-    <div class="container-fluid cajita">
+    <!--botones de la pagina inicial-->
+    <div id="cajita" class="container-fluid">
       <div class="row">
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
           <button type="button" class="btn btn-default izquierda" id="btn-peliculas">Peliculas</button>
@@ -827,6 +877,7 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   <!--botones de la pagina inicial-->
   <div class="container-fluid">
     <div class="row">
@@ -890,12 +941,65 @@
       <!--segunda columna-->
       <div class="col-lg-4 col-md-4 col-sm-4 col-md-4 col-xs-4 tabla2">
         <span>
+=======
+    <!-- pelicula formato-->
+    <div class="container-fluid">
+      <div class="row">
+        <div id="cont-results" class="m-L-R">
+          <div class="row js-contMovievieAll">
+            <!--agregado peliculas desde js-->
+          </div>
+          <div class="row js-contSeriesvieAll">
+            <!--agregado series desde js-->
+          </div>
+          <div class="row js-contProfile">
+            <!--agregado series desde js-->
+          </div>
+          <div class="row js-contPelisvieAll">
+            <!--agregado desde js-->
+          </div>
+          <div class="row js-contSearchvieAll">
+            <!--agregado desde js-->
+          </div>
+          <div class="row js-contUpcomingvieAll">
+            <!--agregado desde js-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--fin de botones de pagina inicial-->
+    <footer class="container-fluid foot navbar-fixed-bottom">
+      <div class="row">
+        <!--primera columna-->
+        <div class="col-lg-4  col-md-4 col-sm-4 col-md-4 col-xs-4 tabla1">
+          <table>
+            <tr>
+              <td>
+                <p>
+                  <a href="#">Acerca de</a>
+                </p>
+                <p>
+                  <a href="#">Contactarse</a>
+                </p>
+                <p>
+                  <a href="#">Centro de ayuda</a>
+                </p>
+              </td>
+              <td>
+            </tr>
+          </table>
+        </div>
+        <!--segunda columna-->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-md-4 col-xs-4 tabla2">
+          <span>
+>>>>>>> arreglando funcionalidades
             <i class="fa fa-facebook-square" aria-hidden="true"></i>
             <i class="fa fa-twitter-square" aria-hidden="true"></i>
             <i class="fa fa-google-plus-square" aria-hidden="true"></i>
             <i class="fa fa-share-alt-square" aria-hidden="true"></i>
           </span>
       </div>
+<<<<<<< HEAD
 
     </div>
   </footer>
@@ -908,3 +1012,15 @@
   </body>
 
 </html>
+=======
+    </footer>
+    </section>
+    <script src="assets/js/validate.min.js" charset="utf-8"></script>
+    <script src="assets/js/moment.min.js" charset="utf-8"></script>
+    <script src="assets/js/app.js" charset="utf-8"></script>
+    <script src="assets/data/data-movie.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+</body>
+
+</html>
+>>>>>>> arreglando funcionalidades

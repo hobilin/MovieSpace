@@ -55,8 +55,8 @@ body {
     border: 0.5px solid #868686;
     background-color: #fff;
 }
-.cajita{
-  margin-top: 53px;
+#cajita{
+  margin-top: 100px;
 }
 .js-img-movie img {
     border-top-left-radius: 10px;
